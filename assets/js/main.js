@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   // AOS
-  if (typeof(AOS) !== "undefined") {
+  if (typeof (AOS) !== "undefined") {
     AOS.init();
   }
 
@@ -37,34 +37,139 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ------------------------------------------------------------
 
+  // Mobile Navigation Slide Animation
   const hamburgerBtn = document.getElementById("hamburgerBtn");
-  const menu_modal = document.getElementById("menu_modal");
+  const mobileNav = document.getElementById("mobileNav");
+  const closeNavBtn = document.getElementById("closeNavBtn");
 
-  function toggleModal() {
-    if (menu_modal.classList.contains("opacity-0")) {
-      // open
-      menu_modal.classList.remove("pointer-events-none", "opacity-0");
-      menu_modal.classList.add("pointer-events-auto", "opacity-100");
-    } else {
-      // close
-      menu_modal.classList.add("opacity-0");
-      menu_modal.classList.remove("opacity-100", "pointer-events-auto");
-      menu_modal.classList.add("pointer-events-none");
-      document.body.style.overflow = "";
+  function openMobileNav() {
+    if (mobileNav && window.innerWidth < 768) {
+      // Temporarily remove max-height to get the natural height
+      mobileNav.style.maxHeight = "none";
+      hamburgerBtn.style.display = "none";
+      const height = mobileNav.scrollHeight;
+      // Set back to 0 to prepare for animation
+      mobileNav.style.maxHeight = "0";
+      // Force reflow
+      mobileNav.offsetHeight;
+      // Now animate to the actual height
+      requestAnimationFrame(() => {
+        mobileNav.style.maxHeight = height + "px";
+        mobileNav.classList.add("menu-open");
+      });
+    }
+  }
+
+  function closeMobileNav() {
+    if (mobileNav && window.innerWidth < 768) {
+      // Get current height
+      const height = mobileNav.scrollHeight;
+      mobileNav.style.maxHeight = height + "px";
+      // Force reflow
+      mobileNav.offsetHeight;
+      // Animate to 0
+      requestAnimationFrame(() => {
+        mobileNav.style.maxHeight = "0";
+        mobileNav.classList.remove("menu-open");
+      });
+      hamburgerBtn.style.display = "block";
     }
   }
 
   if (hamburgerBtn) {
-    hamburgerBtn.addEventListener("click", toggleModal);
+    hamburgerBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      openMobileNav();
+    });
   }
 
+  if (closeNavBtn) {
+    closeNavBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      closeMobileNav();
+    });
+  }
+
+  // Close menu on escape key
   document.addEventListener("keydown", function (e) {
-    if (
-      (e.key === "Escape" || e.key === "Esc") &&
-      !menu_modal.classList.contains("opacity-0")
-    ) {
-      toggleModal();
+    if ((e.key === "Escape" || e.key === "Esc") && mobileNav && mobileNav.classList.contains("menu-open")) {
+      closeMobileNav();
+    }
+  });
+
+  // Reset menu state on window resize (if resizing from mobile to desktop)
+  window.addEventListener("resize", function() {
+    if (mobileNav && window.innerWidth >= 768) {
+      mobileNav.style.maxHeight = "";
+      mobileNav.classList.remove("menu-open");
     }
   });
 
 });
+
+// Service Toggle Slide Button
+
+
+
+// Service Toggle Slide Button
+
+// Grab elements
+const serviceToggleSlideBtn = document.getElementById('serviceToggleSlideBtn');
+const serviceSlideContent = document.getElementById('serviceSlideContent');
+
+// Slide down utility
+function slideDown(element) {
+  element.style.display = 'flex';
+  element.style.height = 'auto';
+  let height = element.scrollHeight + 'px';
+  element.style.height = '0px';
+  element.style.padding = '0px 82px';
+  element.style.marginTop = '0px';
+
+  setTimeout(() => {
+    element.style.duration = '0.5s';
+    element.style.height = height;
+    element.style.padding = '48px 82px';
+    element.style.marginTop = '40px';
+  }, 10);
+
+  element.addEventListener('transitionend', function handler() {
+    element.style.height = 'auto';
+    element.style.transition = '';
+    element.removeEventListener('transitionend', handler);
+  });
+}
+
+// Slide up utility
+function slideUp(element) {
+  element.style.height = element.scrollHeight + 'px';
+  element.style.padding = '48px 82px';
+  element.style.marginTop = '40px';
+  setTimeout(() => {
+    element.style.duration = '0.5s';
+    element.style.height = '0px';
+    element.style.padding = '0px 82px';
+    element.style.marginTop = '0px';
+  }, 10);
+
+  element.addEventListener('transitionend', function handler() {
+    element.style.display = 'none';
+    element.style.transition = '';
+    element.removeEventListener('transitionend', handler);
+  });
+}
+
+// State
+let shown = false;
+if (serviceToggleSlideBtn) {
+  serviceToggleSlideBtn.addEventListener('click', function () {
+    if (!shown) {
+      slideDown(serviceSlideContent);
+      serviceToggleSlideBtn.innerHTML = '閉じる &nbsp;&nbsp; ×';
+    } else {
+      slideUp(serviceSlideContent);
+      serviceToggleSlideBtn.innerHTML = 'もっとみる &nbsp;&nbsp; ⋁';
+    }
+    shown = !shown;
+  });
+}
