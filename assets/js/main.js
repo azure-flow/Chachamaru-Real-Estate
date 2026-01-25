@@ -264,7 +264,7 @@ if (serviceToggleSlideBtn) {
   serviceToggleSlideBtn.addEventListener('click', function () {
     if (!shown) {
       slideDown(serviceSlideContent);
-      serviceToggleSlideBtn.innerHTML = '閉じる &nbsp;&nbsp; ×';
+      serviceToggleSlideBtn.innerHTML = '閉じる &nbsp;&nbsp; ⋀';
     } else {
       slideUp(serviceSlideContent);
       serviceToggleSlideBtn.innerHTML = 'もっとみる &nbsp;&nbsp; ⋁';
