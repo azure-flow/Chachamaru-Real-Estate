@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Scale active/other slides for .swiper-consultation
   const consultation_swiper = new Swiper(".swiper-consultation", {
-    slidesPerView: 1.5,
     centeredSlides: true,
     spaceBetween: 30,
     loop: true,
@@ -19,32 +18,69 @@ document.addEventListener("DOMContentLoaded", function () {
       disableOnInteraction: false,
     },
     pagination: {
-      el: ".swiper-pagination",
+      el: ".swiper-consultation-pagination",
       clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-consultation-right-nav-btn",
+      prevEl: ".swiper-consultation-left-nav-btn",
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 1.5,
+      },
+      1024: {
+        slidesPerView: 1.5,
+      },
+      1280: {
+        slidesPerView: 1.5,
+      },
     },
     loopedSlides: document.querySelectorAll('.swiper-consultation .swiper-slide').length,
     on: {
       init: function () {
-        this.slides.forEach((slide, idx) => {
-          if (idx === this.activeIndex) {
-            slide.style.transform = 'scale(1.1)';
-            slide.style.transition = 'transform 1s ease-out';
-          } else {
-            slide.style.transform = 'scale(0.9)';
-            slide.style.transition = 'transform 1s ease-out';
-          }
-        });
+        if (window.innerWidth >= 1024) { // Apply only on PC
+          this.slides.forEach((slide, idx) => {
+            if (idx === this.activeIndex) {
+              slide.style.transform = 'scale(1.1)';
+              slide.style.transition = 'transform 1s ease-out, background-color 0.7s ease';
+              slide.style.backgroundColor = 'rgb(245,247,249)';
+            } else {
+              slide.style.transform = 'scale(0.9)';
+              slide.style.transition = 'transform 1s ease-out, background-color 0.7s ease';
+              slide.style.backgroundColor = 'rgb(186,191,200)';
+            }
+          });
+        } else {
+          // Reset scale for mobile/tablet
+          this.slides.forEach((slide) => {
+            slide.style.transform = '';
+            slide.style.transition = 'background-color 0.7s ease';
+            slide.style.backgroundColor = 'rgb(186,191,200)';
+          });
+        }
       },
       slideChange: function () {
-        this.slides.forEach((slide, idx) => {
-          if (idx === this.activeIndex) {
-            slide.style.transform = 'scale(1.1)';
-            slide.style.transition = 'transform 1s ease-out';
-          } else {
-            slide.style.transform = 'scale(0.9)';
-            slide.style.transition = 'transform 1s ease-out';
-          }
-        });
+        if (window.innerWidth >= 1024) { // Apply only on PC
+          this.slides.forEach((slide, idx) => {
+            if (idx === this.activeIndex) {
+              slide.style.transform = 'scale(1.1)';
+              slide.style.transition = 'transform 1s ease-out, background-color 0.7s ease';
+              slide.style.backgroundColor = 'rgb(245,247,249)';
+            } else {
+              slide.style.transform = 'scale(0.9)';
+              slide.style.transition = 'transform 1s ease-out, background-color 0.7s ease';
+              slide.style.backgroundColor = 'rgb(186,191,200)';
+            }
+          });
+        } else {
+          // Reset scale for mobile/tablet
+          this.slides.forEach((slide) => {
+            slide.style.transform = '';
+            slide.style.transition = 'background-color 0.7s ease';
+            slide.style.backgroundColor = 'rgb(186,191,200)';
+          });
+        }
       }
     }
   });
