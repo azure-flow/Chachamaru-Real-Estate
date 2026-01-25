@@ -5,6 +5,53 @@ document.addEventListener("DOMContentLoaded", function () {
     AOS.init();
   }
 
+
+
+  // Scale active/other slides for .swiper-consultation
+  const consultation_swiper = new Swiper(".swiper-consultation", {
+    slidesPerView: 1.5,
+    centeredSlides: true,
+    spaceBetween: 30,
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    loopedSlides: document.querySelectorAll('.swiper-consultation .swiper-slide').length,
+    on: {
+      init: function () {
+        this.slides.forEach((slide, idx) => {
+          if (idx === this.activeIndex) {
+            slide.style.transform = 'scale(1.1)';
+            slide.style.transition = 'transform 1s ease-out';
+          } else {
+            slide.style.transform = 'scale(0.9)';
+            slide.style.transition = 'transform 1s ease-out';
+          }
+        });
+      },
+      slideChange: function () {
+        this.slides.forEach((slide, idx) => {
+          if (idx === this.activeIndex) {
+            slide.style.transform = 'scale(1.1)';
+            slide.style.transition = 'transform 1s ease-out';
+          } else {
+            slide.style.transform = 'scale(0.9)';
+            slide.style.transition = 'transform 1s ease-out';
+          }
+        });
+      }
+    }
+  });
+
+
+
+
   // Scroll to Top Button
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
   if (scrollToTopBtn) {
@@ -77,14 +124,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (hamburgerBtn) {
-    hamburgerBtn.addEventListener("click", function(e) {
+    hamburgerBtn.addEventListener("click", function (e) {
       e.stopPropagation();
       openMobileNav();
     });
   }
 
   if (closeNavBtn) {
-    closeNavBtn.addEventListener("click", function(e) {
+    closeNavBtn.addEventListener("click", function (e) {
       e.stopPropagation();
       closeMobileNav();
     });
@@ -98,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Reset menu state on window resize (if resizing from mobile to desktop)
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     if (mobileNav && window.innerWidth >= 768) {
       mobileNav.style.maxHeight = "";
       mobileNav.classList.remove("menu-open");
@@ -123,13 +170,21 @@ function slideDown(element) {
   element.style.height = 'auto';
   let height = element.scrollHeight + 'px';
   element.style.height = '0px';
-  element.style.padding = '0px 82px';
+  if (window.innerWidth < 768) {
+    element.style.padding = '0px 24px';
+  } else {
+    element.style.padding = '0px 82px';
+  }
   element.style.marginTop = '0px';
 
   setTimeout(() => {
     element.style.duration = '0.5s';
     element.style.height = height;
-    element.style.padding = '48px 82px';
+    if (window.innerWidth < 768) {
+      element.style.padding = '40px 24px';
+    } else {
+      element.style.padding = '48px 82px';
+    }
     element.style.marginTop = '40px';
   }, 10);
 
@@ -143,12 +198,20 @@ function slideDown(element) {
 // Slide up utility
 function slideUp(element) {
   element.style.height = element.scrollHeight + 'px';
-  element.style.padding = '48px 82px';
+  if (window.innerWidth < 768) {
+    element.style.padding = '40px 24px';
+  } else {
+    element.style.padding = '48px 82px';
+  }
   element.style.marginTop = '40px';
   setTimeout(() => {
     element.style.duration = '0.5s';
     element.style.height = '0px';
-    element.style.padding = '0px 82px';
+    if (window.innerWidth < 768) {
+      element.style.padding = '0px 24px';
+    } else {
+      element.style.padding = '0px 82px';
+    }
     element.style.marginTop = '0px';
   }, 10);
 
