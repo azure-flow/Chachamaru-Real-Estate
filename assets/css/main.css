@@ -144,3 +144,15 @@ body {
     height: 14px;
   }
 }
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .writing-vertical {
+    writing-mode: horizontal-tb;
+  }
+}

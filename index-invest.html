@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChachaMaru</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link href="assets/css/swiper.css" rel="stylesheet" />
+  <link href="assets/css/font.css" rel="stylesheet" />
+  <link href="assets/css/main.css" rel="stylesheet" />
+  <link href="assets/css/aos.css" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <script src="assets/css/tailwind.css"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+</head>
+
+<body class="relative">
+  <header class="fixed w-full justify-center bg-[#193759] md:bg-white z-30">
+    <div
+      class="max-w-[1440px] mx-auto md:h-[60px] flex flex-col md:flex-row items-center justify-center md:justify-between px-6">
+      <div class="flex items-center shrink-0 py-3 md:py-0">
+        <img src="assets/images/logo.png" alt="ロゴ" class="hidden md:block w-[325px]" />
+        <img src="assets/images/logo02.png" alt="ロゴ" class="w-[192px] md:hidden" />
+      </div>
+
+      <nav id="mobileNav"
+        class="w-full md:w-auto flex flex-col md:flex-row justify-start md:items-center xl:gap-10 overflow-hidden">
+        <a href="#"
+          class="min-w-[100px] text-start md:text-center font-inter text-[18px] lg:text-[16px] font-normal font-inter text-white md:text-black hover:text-[#227093] border-b border-[#616A82CC] md:border-0 transition pl-8 md:pr-0 py-3 md:py-0 mt-[30px] md:mt-0">TOP</a>
+        <a href="#"
+          class="min-w-[100px] text-start md:text-center font-inter text-[18px] lg:text-[16px] font-normal font-inter text-white md:text-black hover:text-[#227093] border-b border-[#616A82CC] md:border-0 transition pl-8 md:pr-0 py-3 md:py-0 mt-2 md:mt-0">投資不動産</a>
+        <a href="#"
+          class="min-w-[100px] text-start md:text-center font-inter text-[18px] lg:text-[16px] font-normal font-inter text-white md:text-black hover:text-[#227093] border-b border-[#616A82CC] md:border-0 transition pl-8 md:pr-0 py-3 md:py-0 mt-2 md:mt-0">不動産再生事業</a>
+        <a href="#"
+          class="min-w-[100px] text-start md:text-center font-inter text-[18px] lg:text-[16px] font-normal font-inter text-white md:text-black hover:text-[#227093] border-b border-[#616A82CC] md:border-0 transition pl-8 md:pr-0 py-3 md:py-0 mt-2 md:mt-0">管理</a>
+        <button id="closeNavBtn"
+          class="flex gap-2 items-center md:hidden text-[16px] text-white md:pr-0 py-3 md:py-0 mt-4 mb-10 mx-auto">
+          閉じる
+          <svg class="w-[14px] h-[10px] pt-[2px]" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7 L7 1 L13 7" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4 xl:gap-12">
+        <button
+          class="md:px-12 lg:px-16 xl:px-20 py-[10px] rounded-full bg-[#193759e5] hover:bg-white text-white hover:text-[#193759e5] border border-[#193759e5] text-12-16 font-medium shadow-sm hover:bg-[#312f46] transition">
+          資料請求
+        </button>
+        <div class="flex items-center text-[#193759e5] whitespace-nowrap gap-1">
+          <img src="assets/images/phone.png" alt="電話" class="md:w-[20px] lg:w-[22px] xl:w-[26px] aspect-[1]">
+          <span class="tracking-tight text-12-16 font-normal">03-6279-3943</span>
+        </div>
+      </div>
+
+      <div id="hamburgerBtn"
+        class="absolute top-[18px] right-6 flex justify-center flex-col text-white w-[30px] h-[20px] cursor-pointer">
+        <div class="flex flex-col items-center justify-between w-full h-full">
+          <div class="h-[2px] w-full bg-white"></div>
+          <div class="h-[2px] w-full bg-white"></div>
+          <div class="h-[2px] w-full bg-white"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="w-full h-[100vh] lg:h-[1200px]">
+    <div
+      class="w-full flex justify-center items-center mx-auto h-full bg-[url('assets/images/hero-sp.webp')] bg-cover bg-center md:bg-[url('assets/images/hero.webp')] bg-cover bg-center">
+      <div class="max-w-[1150px] w-full mx-auto flex flex-col items-center gap-[92px] lg:pt-[430px]">
+        <h2
+          class="text-[32px] lg:text-[40px] xl:text-[48px] font-bold text-center text-white leading-[1.5] lg:leading-[1.7]">
+          「安心」から<br class="md:hidden">逆算した<br class="md:hidden">サービス設計
+        </h2>
+        <div
+          class="hidden lg:block max-w-[1006px] w-full bg-[#FFFFFFCC] rounded py-10 px-8 mx-auto flex flex-col items-center gap-10">
+          <div class="w-full pt-10 pb-6">
+            <h2 class="text-[#373B60] text-[20px] lg:text-[22px] font-bold text-center">
+              ちゃちゃまる不動産ＤＸ ３つの「安心」設計
+            </h2>
+          </div>
+          <div class="w-full flex flex-col lg:flex-row items-start gap-4 pb-6">
+            <div class="w-full flex flex-col justify-start items-center gap-4 md:gap-6">
+              <img src="assets/images/invest/buyback-clause-mark.webp" alt="買戻し特約"
+                class="w-[120px] lg:w-[166px] h-auto" />
+              <p class="text-[#373B60] flex items-center gap-2 text-[18px] font-bold text-center">
+                <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                    stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                買戻し特約*
+              </p>
+            </div>
+            <div class="w-full flex flex-col justify-start items-center gap-4 md:gap-6">
+              <img src="assets/images/invest/support-for-rental-mark.webp" alt="買戻し特約"
+                class="w-[120px] lg:w-[166px] h-auto" />
+              <p class="text-[#373B60] flex items-center gap-2 text-[18px] font-bold text-start">
+                <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                    stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                賃貸管理＆空き室<br>リスク管理までサポート
+              </p>
+            </div>
+            <div class="w-full flex flex-col justify-start items-center gap-4 md:gap-6">
+              <img src="assets/images/invest/2nd-class-architect-mark.webp" alt="買戻し特約"
+                class="w-[120px] lg:w-[166px] h-auto" />
+              <p class="text-[#373B60] flex items-center gap-2 text-[18px] font-bold text-center">
+                <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                    stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                ２級建築士在籍
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- mobile menu section -->
+  <section class="p-[22px] pt-[88px] md:hidden">
+    <div class="w-full flex justify-center items-center mx-auto">
+      <div
+        class="w-full max-w-[420px] bg-[#eef2f580] border-t border-b border-[#19375999] py-8 px-6 flex flex-col items-center">
+        <div class="text-[#244A6E] text-[16px] tracking-[2px] font-semibold flex items-center justify-center gap-0">
+          <svg width="32" height="17" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="inline-block align-middle" style="vertical-align:middle;">
+            <!-- Row 1 -->
+            <rect x="6" y="3" width="2" height="2" fill="#244A6E" />
+            <rect x="12" y="3" width="12" height="2" fill="#244A6E" />
+            <!-- Row 2 -->
+            <rect x="6" y="10" width="2" height="2" fill="#244A6E" />
+            <rect x="12" y="10" width="12" height="2" fill="#244A6E" />
+            <!-- Row 3 -->
+            <rect x="6" y="17" width="2" height="2" fill="#244A6E" />
+            <rect x="12" y="17" width="12" height="2" fill="#244A6E" />
+          </svg>
+          <span>目次</span>
+        </div>
+        <div id="mobileMenuToggle">
+          <button id="showMenuBtn"
+            class="min-w-[222px] border border-[#244a6ee6] text-[#244A6E] px-4 py-1 mt-6 text-[12px] transition hover:bg-[#eaf1f6] flex items-center justify-center gap-2 font-light">
+            <span>表示して見たいところだけ見る</span>
+            <svg class="ml-1" width="19" height="19" viewBox="0 0 24 24" fill="none">
+              <path d="M7 10l5 5 5-5" stroke="#244A6E" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <!-- Slide "modal": use max-height & transition for smooth expand/collapse -->
+          <div id="mobileMenuModal" class="w-full mt-4 overflow-hidden transition-all duration-500"
+            style="max-height: 0; opacity: 0;" aria-hidden="true">
+            <ul class="flex flex-col gap-4 text-[#244A6E] font-semibold text-[12px]">
+              <li>
+                <a href="#our-services"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#244a6e99" />
+                  </svg>
+                  <span>事業内容</span>
+                </a>
+              </li>
+              <li>
+                <a href="#about-us"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#244a6e99" />
+                  </svg>
+                  <span>私たちについて</span>
+                </a>
+              </li>
+              <li>
+                <a href="#peace-of-mind"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#244a6e99" />
+                  </svg>
+                  <span>ちゃちゃまるが考える「安心」とは？</span>
+                </a>
+              </li>
+              <li>
+                <a href="#process-3step"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#244a6e99" />
+                  </svg>
+                  <span>進め方３STEP</span>
+                </a>
+              </li>
+              <li>
+                <a href="#consultation"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#244a6e99" />
+                  </svg>
+                  <span>無料相談</span>
+                </a>
+              </li>
+              <li>
+                <a href="#meritDemeritSection"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#244a6e99" />
+                  </svg>
+                  <span>不動産投資のメリット・デメリット</span>
+                </a>
+              </li>
+            </ul>
+            <div class="flex justify-center mt-10">
+              <button id="closeMenuBtn"
+                class="border border-[#244a6ee6] text-[#244A6E] px-6 py-1 text-[10px] transition hover:bg-[#eaf1f6] font-light flex items-center gap-2">
+                閉じる
+                <svg class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <line x1="7" y1="7" x2="17" y2="17" stroke="#244A6E" stroke-width="1" stroke-linecap="round" />
+                  <line x1="17" y1="7" x2="7" y2="17" stroke="#244A6E" stroke-width="1" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const showMenuBtn = document.getElementById("showMenuBtn");
+            const closeMenuBtn = document.getElementById("closeMenuBtn");
+            const mobileMenuModal = document.getElementById("mobileMenuModal");
+
+            // helper: get current expanded state
+            function isExpanded() {
+              return mobileMenuModal.style.maxHeight && mobileMenuModal.style.maxHeight !== "0px";
+            }
+
+            function expandMenu() {
+              mobileMenuModal.classList.remove('hidden');
+              mobileMenuModal.style.opacity = "1";
+              mobileMenuModal.setAttribute("aria-hidden", "false");
+              // Temporarily set height to scrollHeight to trigger transition
+              mobileMenuModal.style.maxHeight = mobileMenuModal.scrollHeight + "px";
+              // Hide showMenuBtn
+              showMenuBtn.style.display = "none";
+            }
+
+            function collapseMenu() {
+              mobileMenuModal.style.opacity = "0";
+              mobileMenuModal.setAttribute("aria-hidden", "true");
+              mobileMenuModal.style.maxHeight = "0";
+              // Show showMenuBtn after animation ends
+              setTimeout(() => {
+                if (!isExpanded()) {
+                  mobileMenuModal.classList.add('hidden');
+                  showMenuBtn.style.display = "";
+                }
+              }, 500); // match duration-500
+            }
+
+            showMenuBtn.addEventListener("click", function () {
+              // Expand only if not already expanded
+              if (!isExpanded()) {
+                expandMenu();
+              }
+            });
+
+            closeMenuBtn.addEventListener("click", function () {
+              if (isExpanded()) {
+                collapseMenu();
+              }
+            });
+
+            // Ensure menu collapsed at page load, show button
+            collapseMenu();
+            showMenuBtn.style.display = "";
+          });
+        </script>
+      </div>
+  </section>
+
+  <!-- mobile Section -->
+  <section class="w-full md:hidden">
+    <div class="w-full bg-[#FFFFFFCC] rounded py-10 px-8 mx-auto flex flex-col items-center gap-10">
+      <div class="w-full pt-10 pb-6">
+        <h2 class="text-[#244A6E] text-[24px] font-bold text-center">
+          ちゃちゃまる不動産ＤＸ<br>３つの「安心」設計
+        </h2>
+        <p class="font-inter text-[#244A6E40] text-[20px] font-bold text-center">3 Things for Relief</p>
+      </div>
+      <div class="w-full flex flex-col lg:flex-row items-start gap-10 md:gap-4 pb-6">
+        <div class="w-full flex justify-between items-center gap-4 md:gap-6">
+          <p class="text-[#373B60] flex flex-col items-center gap-4 text-[18px] font-bold text-center">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            買戻し特約*
+          </p>
+          <img src="assets/images/invest/buyback-clause-mark.webp" alt="買戻し特約" class="w-[145px] h-auto" />
+        </div>
+        <div class="w-full flex justify-between items-center gap-4 md:gap-6">
+          <img src="assets/images/invest/support-for-rental-mark.webp" alt="買戻し特約" class="w-[145px] h-auto" />
+          <p class="text-[#373B60] flex flex-col items-center gap-4 text-[18px] font-bold text-center">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            賃貸管理＆<br>空き室リスク管理<br>までサポート
+          </p>
+        </div>
+        <div class="w-full flex justify-between items-center gap-4 md:gap-6">
+          <p class="text-[#373B60] flex flex-col items-center gap-4 text-[18px] font-bold text-center">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            ２級建築士在籍
+          </p>
+          <img src="assets/images/invest/2nd-class-architect-mark.webp" alt="買戻し特約" class="w-[145px] h-auto" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process-3step" class="w-full">
+    <div class="w-full">
+      <div class="w-full flex flex-col-reverse md:flex-row gap-20 md:gap-0 bg-white md:bg-transparent">
+        <div class="flex-1 relative flex items-center px-[30px] lg:px-0">
+          <div class="relative w-full flex flex-col items-start gap-10 md:gap-12 lg:pl-[120px] lg:pr-[80px] pb-14">
+            <h4 class="w-full text-[#244A6E] text-[22px] text-center md:text-start font-bold">買戻し特約*</h4>
+            <p class="text-[#34495E] text-[14px] lg:text-[18px] leading-relaxed">
+              弊社では「買戻し特約」を設けています。やはり、お客様の多くは「売却してもローンが残ってしまったらどうしよう」とご不安を抱える方が多いです。
+            </p>
+            <p class="text-[#34495E] text-[14px] lg:text-[18px] leading-relaxed">
+              そのため、弊社では“売却時のローン残高確<br class="block md:hidden">約”をさせていただき、万が一ローンがたくさん残っていても返済できるよう、「買戻し特約」を設定いたしました。
+            </p>
+            <p class="text-[#34495E] text-[12px] leading-snug">
+              *買戻し特約を付加するには、諸条件を満たす必要があります。
+            </p>
+          </div>
+        </div>
+        <div class="flex-1">
+          <img src="assets/images/invest/buyback-clause.webp" alt="step01" class="w-full h-auto hidden md:block">
+          <img src="assets/images/invest/buyback-clause-sp.webp" alt="step01" class="w-full h-auto block md:hidden">
+        </div>
+      </div>
+      <div class="w-full flex flex-col md:flex-row gap-16 md:gap-0 bg-white md:bg-transparent">
+        <div class="flex-1">
+          <img src="assets/images/invest/support-for-rental.webp" alt="step02" class="w-full h-auto">
+        </div>
+        <div class="flex-1 relative flex items-center px-[30px] lg:px-0">
+          <div
+            class="relative w-full flex flex-col items-center md:items-start gap-10 md:gap-12 lg:pl-[120px] lg:pr-[80px] pb-10">
+            <h4 class="w-full text-[#244A6E] text-[22px] lg:text-[22px] text-center md:text-start font-bold">賃貸管理＆空き室<br
+                class="block md:hidden">リスク管理までサポート</h4>
+            <div class="w-full flex flex-col gap-6 md:gap-0">
+              <p class="text-[#34495E] text-[15px] lg:text-[18px] lg:leading-[3]">
+                弊社では月々1,000円で、こんな管理も行います！
+              </p>
+              <div class="flex flex-col gap-4 justify-center items-center md:hidden border-y border-[#3E6F9C99] py-4">
+                <h5 class="w-full text-[#244A6E] text-[18px] text-center md:text-start font-bold">︎借主さま (住居者さま) の管理</h5>
+                <p class="flex items-center gap-2 text-[16px] text-[#244A6E] font-medium">
+                  <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.11133 6.29492L6.13573 11.8339C6.33642 12.0551 6.68505 12.0522 6.882 11.8276L16.3863 0.989356"
+                      stroke="#3E6F9C" stroke-opacity="0.5" stroke-width="3" />
+                  </svg>
+                  設備の不具合
+                </p>
+                <p class="flex items-center gap-2 text-[16px] text-[#244A6E] font-medium">
+                  <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.11133 6.29492L6.13573 11.8339C6.33642 12.0551 6.68505 12.0522 6.882 11.8276L16.3863 0.989356"
+                      stroke="#3E6F9C" stroke-opacity="0.5" stroke-width="3" />
+                  </svg>
+                  設備の不具合
+                </p>
+                <p class="flex items-center gap-2 text-[16px] text-[#244A6E] font-medium">
+                  <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.11133 6.29492L6.13573 11.8339C6.33642 12.0551 6.68505 12.0522 6.882 11.8276L16.3863 0.989356"
+                      stroke="#3E6F9C" stroke-opacity="0.5" stroke-width="3" />
+                  </svg>
+                  設備の不具合
+                </p>
+              </div>
+              <p class="text-[#34495E] text-[15px] lg:text-[18px] leading-relaxed">
+                などを行っています。<br>
+                管理については下記でさらに詳しくご紹介しております。
+              </p>
+            </div>
+            <div
+              class="w-full max-w-[280px] flex gap-4 items-end justify-center text-[#244A6E] hover:text-[#EAF0F6] bg-white hover:bg-[#193759E5] border  hover:border-[#E9F2FA] border-[#244A6E] font-semibold rounded shadow-lg py-3 xl:px-6 duration-150 cursor-pointer group">
+              <span class="text-[16px] duration-150">詳しくはこちら</span>
+              <svg class="duration-150 text-[#244A6E] group-hover:text-[#EAF0F6] w-[36px] h-[16px]" viewBox="0 0 40 20"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10 H40 L30 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex flex-col-reverse md:flex-row gap-20 md:gap-0 bg-white md:bg-transparent">
+        <div class="flex-1 relative flex items-center px-[30px] lg:px-0">
+          <div class="relative w-full flex flex-col items-center md:items-start gap-10 md:gap-12 lg:pl-[120px] lg:pr-[80px] pb-10">
+            <h4 class="text-[#244A6E] text-[22px] lg:text-[22px] font-bold">2級建築士在籍</h4>
+            <p class="text-[#34495E] text-[15px] lg:text-[18px] leading-relaxed">
+              実はちゃちゃまる不動産ＤＸ代表は２級建築士の資格保持者。
+              物件の構造や外壁の確認は購入前に行うべきとても重要なポイントです。お客様目線で入念に物件をチェックし、そのあとのリフォーム費用なども加味した上でリスクなども誠実にお伝えしています。
+            </p>
+            <p class="text-[#34495E] text-[15px] lg:text-[18px] leading-relaxed">
+              また、リフォーム自体も自社で行うことができるため、よりお安く済ますことができます。
+            </p>
+          </div>
+        </div>
+        <div class="flex-1">
+          <img src="assets/images/invest/2nd-class-architect.webp" alt="step03" class="w-full h-auto hidden md:block">
+          <img src="assets/images/invest/2nd-class-architect-sp.webp" alt="step03"
+            class="w-full h-auto block md:hidden">
+        </div>
+      </div>
+  </section>
+
+  <section id="our-services" class="section-container w-full bg-[#EAF0F6] text-center px-[30px] md:px-0">
+    <div class="w-full md:mb-4 lg:mb-6 xl:mb-8">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#193759] tracking-wide">
+        ちゃちゃまる不動産を選ぶ理由
+      </h2>
+      <p
+        class="font-inter text-center text-[20px] md:text-[24px] lg:text-[226px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#193759]/25">
+        Our Advantages
+      </p>
+    </div>
+    <div class="flex flex-col gap-10">
+      <div class="mx-auto max-w-[1220px] w-full flex flex-col md:flex-row gap-10 md:gap-[1px] pt-10">
+        <div class="w-full lg:w-[47%] flex items-center">
+          <p class="text-[#244A6E] text-[14px] lg:text-[18px] tracking-wide leading-7 md:leading-relaxed text-start text-light lg:font-semibold">
+            弊社が考える「安心」とは、それぞれのサービスにおいて<br class="hidden lg:block">発生する<span class="underline underline-offset-4 font-semibold">お客様の「不安」の元を解消すること</span>です。
+          </p>
+        </div>
+        <div class="w-full lg:w-[53%] flex flex-row items-center justify-start bg-[#244A6E] py-4 lg:py-6 px-3 lg:px-8 gap-2 lg:gap-4 rounded-md">
+          <div class="w-[55%] flex flex-row gap-1 lg:gap-2">
+            <div class="flex flex-row items-center gap-2">
+              <div class="border border-white py-2 lg:py-4 px-[5px] lg:px-2 flex items-center h-full">
+                <span class="text-white text-[12px] lg:text-[16px] tracking-[5px] writing-vertical">
+                  ちゃちゃまる不動産
+                </span>
+              </div>
+            </div>
+            <div class="w-1 lg:w-3"></div>
+            <div class="flex flex-row bg-white items-center gap-2">
+              <div class="border border-white py-4 px-1 lg:px-2 flex flex-col justify-start items-center h-full gap-4">
+                <div class="border border-[#244A6E] rounded lg:rounded-lg px-[2px] lg:px-2 py-[2px] lg:py-1">
+                  <p class="font-inter text-[10px] lg:text-[18px] font-bold text-[#244A6E]">01</p>
+                </div>
+                <span class="text-[#244A6E] text-[14px] lg:text-[16px] font-bold tracking-[1px] lg:tracking-[5px]  writing-vertical">
+                  不動産購入
+                </span>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg class="w-[7px] h-[20px] lg:w-[12px] lg:h-[27px]" viewBox="0 0 12 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M11.7165 13.3439C11.8792 13.156 11.8792 12.8772 11.7165 12.6893L0.877963 0.173979C0.574896 -0.175974 0 0.0383644 0 0.501307V25.5319C0 25.9948 0.574898 26.2092 0.877964 25.8592L11.7165 13.3439Z"
+                  fill="#D9DEE3" />
+              </svg>
+            </div>
+            <div class="flex flex-row bg-white items-center gap-2">
+              <div class="border border-white py-4 px-1 lg:px-2 flex flex-col justify-start items-center h-full gap-4">
+                <div class="border border-[#244A6E] rounded lg:rounded-lg px-[2px] lg:px-2 py-[2px] lg:py-1">
+                  <p class="font-inter text-[10px] lg:text-[18px] font-bold text-[#244A6E]">02</p>
+                </div>
+                <span class="text-[#244A6E] text-[14px] lg:text-[16px] font-bold tracking-[1px] lg:tracking-[5px]  writing-vertical">
+                  不動産販売
+                </span>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg class="w-[7px] h-[20px] lg:w-[12px] lg:h-[27px]" viewBox="0 0 12 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M11.7165 13.3439C11.8792 13.156 11.8792 12.8772 11.7165 12.6893L0.877963 0.173979C0.574896 -0.175974 0 0.0383644 0 0.501307V25.5319C0 25.9948 0.574898 26.2092 0.877964 25.8592L11.7165 13.3439Z"
+                  fill="#D9DEE3" />
+              </svg>
+            </div>
+            <div class="flex flex-row bg-white items-center gap-2">
+              <div class="border border-white rounded py-4 px-1 lg:px-2 flex flex-col justify-start items-center h-full gap-4">
+                <div class="border border-[#244A6E] rounded lg:rounded-lg px-[2px] lg:px-2 py-[2px] lg:py-1">
+                  <p class="font-inter text-[10px] lg:text-[18px] font-bold text-[#244A6E]">03</p>
+                </div>
+                <span class="text-[#244A6E] text-[14px] lg:text-[16px] font-bold tracking-[1px] lg:tracking-[5px]  writing-vertical">
+                  不動産売却
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="w-[45%] flex items-center">
+            <div class="relative w-full flex items-center">
+              <svg width="243" height="82" viewBox="0 0 243 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M218.877 0L243 40.1963L218.877 81.9102H24.123L0 40.1963L24.123 0H218.877Z" fill="white"
+                  fill-opacity="0.4" />
+              </svg>
+              <span
+                class="absolute left-10 lg:left-14 top-0 h-full flex items-center gap-2 text-white text-[12px] lg:text-[16px] font-semibold tracking-wide whitespace-nowrap">
+                余った手数料
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto max-w-[1220px] w-full flex flex-col md:flex-row gap-10 md:gap-[1px]">
+        <div class="w-full lg:w-[47%] flex items-center">
+          <p class="text-[#244A6E] text-[14px] lg:text-[18px] tracking-wide leading-7 md:leading-relaxed text-start text-light lg:font-semibold">
+            弊社が考える「安心」とは、それぞれのサービスにおいて<br class="hidden lg:block">発生する<span class="underline underline-offset-4 font-semibold">お客様の「不安」の元を解消すること</span>です。
+          </p>
+        </div>
+        <div class="w-full lg:w-[53%] flex flex-row items-center justify-start bg-[#244A6E] py-4 lg:py-6 px-3 lg:px-8 gap-2 lg:gap-4 rounded-md">
+          <div class="w-[55%] flex flex-row gap-1 lg:gap-2">
+            <div class="flex flex-row items-center gap-2">
+              <div class="border border-white py-2 lg:py-4 px-[5px] lg:px-2 flex items-center h-full">
+                <span class="text-white text-[12px] lg:text-[16px] tracking-[5px] writing-vertical">
+                  ちゃちゃまる不動産
+                </span>
+              </div>
+            </div>
+            <div class="w-1 lg:w-3"></div>
+            <div class="flex flex-row bg-white items-center gap-2">
+              <div class="border border-white py-4 px-1 lg:px-2 flex flex-col justify-start items-center h-full gap-4">
+                <div class="border border-[#244A6E] rounded lg:rounded-lg px-[2px] lg:px-2 py-[2px] lg:py-1">
+                  <p class="font-inter text-[10px] lg:text-[18px] font-bold text-[#244A6E]">01</p>
+                </div>
+                <span class="text-[#244A6E] text-[14px] lg:text-[16px] font-bold tracking-[1px] lg:tracking-[5px]  writing-vertical">
+                  不動産購入
+                </span>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg class="w-[7px] h-[20px] lg:w-[12px] lg:h-[27px]" viewBox="0 0 12 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M11.7165 13.3439C11.8792 13.156 11.8792 12.8772 11.7165 12.6893L0.877963 0.173979C0.574896 -0.175974 0 0.0383644 0 0.501307V25.5319C0 25.9948 0.574898 26.2092 0.877964 25.8592L11.7165 13.3439Z"
+                  fill="#D9DEE3" />
+              </svg>
+            </div>
+            <div class="flex flex-row bg-white items-center gap-2">
+              <div class="border border-white py-4 px-1 lg:px-2 flex flex-col justify-start items-center h-full gap-4">
+                <div class="border border-[#244A6E] rounded lg:rounded-lg px-[2px] lg:px-2 py-[2px] lg:py-1">
+                  <p class="font-inter text-[10px] lg:text-[18px] font-bold text-[#244A6E]">02</p>
+                </div>
+                <span class="text-[#244A6E] text-[14px] lg:text-[16px] font-bold tracking-[1px] lg:tracking-[5px]  writing-vertical">
+                  不動産販売
+                </span>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg class="w-[7px] h-[20px] lg:w-[12px] lg:h-[27px]" viewBox="0 0 12 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M11.7165 13.3439C11.8792 13.156 11.8792 12.8772 11.7165 12.6893L0.877963 0.173979C0.574896 -0.175974 0 0.0383644 0 0.501307V25.5319C0 25.9948 0.574898 26.2092 0.877964 25.8592L11.7165 13.3439Z"
+                  fill="#D9DEE3" />
+              </svg>
+            </div>
+            <div class="flex flex-row bg-white items-center gap-2">
+              <div class="border border-white rounded py-4 px-1 lg:px-2 flex flex-col justify-start items-center h-full gap-4">
+                <div class="border border-[#244A6E] rounded lg:rounded-lg px-[2px] lg:px-2 py-[2px] lg:py-1">
+                  <p class="font-inter text-[10px] lg:text-[18px] font-bold text-[#244A6E]">03</p>
+                </div>
+                <span class="text-[#244A6E] text-[14px] lg:text-[16px] font-bold tracking-[1px] lg:tracking-[5px]  writing-vertical">
+                  不動産売却
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="w-[45%] flex items-center">
+            <div class="relative w-full flex items-center">
+              <svg width="243" height="82" viewBox="0 0 243 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M218.877 0L243 40.1963L218.877 81.9102H24.123L0 40.1963L24.123 0H218.877Z" fill="white"
+                  fill-opacity="0.4" />
+              </svg>
+              <span
+                class="absolute left-10 lg:left-14 top-0 h-full flex items-center gap-2 text-white text-[12px] lg:text-[16px] font-semibold tracking-wide whitespace-nowrap">
+                余った手数料
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="max-w-[1020px] mx-auto w-full">
+        <div class="w-full relative flex justify-center my-10">
+          <img src="assets/images/down-arrow.webp" alt="step-line" class="hidden md:block w-[175px] h-auto">
+          <p class="md:absolute top-[50px] text-[#244A6E] text-14-18 front-regular md:font-semibold tracking-wide">
+            すると、必ず「仲介手数料」が発生することになり、売却でも販売でも、<br>
+            お客さまの手元に残るお金が減ってしまいます。
+          </p>
+        </div>
+        <div class="w-full relative flex justify-center py-7 bg-white">
+          <p class="text-[#244A6E] text-14-18 front-regular md:font-semibold tracking-wide">
+            「安心」から逆算したサービス設計をつくるため、弊社はすべてのサービスを自社でおこなうことで、<br>
+            「仲介手数料」を差し引くことなく、また物件の質を最初に見極めてからお客様にお渡しすることができるのです。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-container w-full">
+    <div class="w-full md:mb-4 lg:mb-6 xl:mb-8">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#193759] tracking-wide">
+        不動産投資「目的」ごとの手順
+      </h2>
+      <p
+        class="text-center font-inter text-[20px] md:text-[24px] lg:text-[226px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#193759]/25">
+        Investment Steps by Objective
+      </p>
+      <p
+        class="text-center mt-16 md:mt-20 lg:mt-24 xl:mt-28 mx-auto text-14-18 font-light md:font-semibold tracking-wider leading-[2] text-[#244A6E]">
+        弊社が考える「安心」とは、それぞれのサービスにおいて発生するお客様の「不安」の元を解消することです。
+      </p>
+    </div>
+    <div class="w-full relative max-w-[1440px] mx-auto flex flex-col items-center gap-[72px]">
+      <div class="w-full max-w-[964px] relative px-9 md:px-0">
+        <div class="bg-[#EAF0F6] rounded-[10px] px-4 py-6 md:px-10 md:py-8 mx-auto shadow-sm">
+          <div class="flex flex-col items-center gap-3 mb-7">
+            <span class="text-[#244A6E] text-[14px] md:text-[22px] font-semibold flex items-center gap-2">
+              <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                  stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+              </svg>
+              新規で不動産投資を始めたい方
+            </span>
+          </div>
+          <div class="flex flex-col gap-8 w-full">
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP01
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                現在の収入・資産状況の整理
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP02
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                投資目的の明確化<span class="text-[14px] font-light pl-5">（収益・節税・将来設計）</span>
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP03
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                融資条件・資金計画の確認
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP04
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                物件選定・収支シミュレーション
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP05
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                購入・運用スタート
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg width="53" height="50" viewBox="0 0 53 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M41.0938 24.25C41.0938 24.8023 41.5415 25.25 42.0938 25.25H51.1855C52.1039 25.25 52.5365 26.3844 51.8516 26.9961L26.7598 49.4053C26.3804 49.744 25.8071 49.744 25.4277 49.4053L0.335938 26.9961C-0.349027 26.3844 0.0835871 25.25 1.00195 25.25H10.0938C10.646 25.25 11.0938 24.8023 11.0938 24.25V1C11.0938 0.447715 11.5415 0 12.0938 0H40.0938C40.646 0 41.0938 0.447715 41.0938 1V24.25Z"
+                  fill="#3E6F9C" fill-opacity="0.5" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-center w-full">
+              <div
+                class="flex items-center gap-2 text-[#244A6E] text-[14px] md:text-[15px] font-semibold mb-4 border-b border-[#3E6F9CCC] pb-2">
+                <span class="font-inter font-semibold tracking-wide text-[#3E6F9C]">POINT</span>
+                <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.25 5.26407C8.58333 5.07162 8.58333 4.59049 8.25 4.39804L0.75 0.0679159C0.416666 -0.124535 0 0.116028 0 0.500928V9.16118C0 9.54608 0.416667 9.78664 0.75 9.59419L8.25 5.26407Z"
+                    fill="#3E6F9C" />
+                </svg>
+                <p class="text-[#3E6F9C] text-[14px] md:text-[18px] font-semibold">利回りだけで判断せず、長期的に無理のない投資設計を行います。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full max-w-[964px] relative px-9 md:px-0">
+        <div class="bg-[#EAF0F6] rounded-[10px] px-4 py-6 md:px-10 md:py-8 mx-auto shadow-sm">
+          <div class="flex flex-col items-center gap-3 mb-7">
+            <span class="text-[#244A6E] text-[14px] md:text-[22px] font-semibold flex items-center gap-2">
+              <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                  stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+              </svg>
+              今ある不動産を売却したい方
+            </span>
+          </div>
+          <div class="flex flex-col gap-8 w-full">
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP01
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                売却理由・お悩みの整理
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP02
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                現在の収支・残債・税金の確認
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP03
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                売却タイミング・方法の検討
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP04
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                売却実行・資金化
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg width="53" height="50" viewBox="0 0 53 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M41.0938 24.25C41.0938 24.8023 41.5415 25.25 42.0938 25.25H51.1855C52.1039 25.25 52.5365 26.3844 51.8516 26.9961L26.7598 49.4053C26.3804 49.744 25.8071 49.744 25.4277 49.4053L0.335938 26.9961C-0.349027 26.3844 0.0835871 25.25 1.00195 25.25H10.0938C10.646 25.25 11.0938 24.8023 11.0938 24.25V1C11.0938 0.447715 11.5415 0 12.0938 0H40.0938C40.646 0 41.0938 0.447715 41.0938 1V24.25Z"
+                  fill="#3E6F9C" fill-opacity="0.5" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-center w-full">
+              <div
+                class="flex items-center gap-2 text-[#244A6E] text-[14px] md:text-[15px] font-semibold mb-4 border-b border-[#3E6F9CCC] pb-2">
+                <span class="font-inter font-semibold tracking-wide text-[#3E6F9C]">POINT</span>
+                <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.25 5.26407C8.58333 5.07162 8.58333 4.59049 8.25 4.39804L0.75 0.0679159C0.416666 -0.124535 0 0.116028 0 0.500928V9.16118C0 9.54608 0.416667 9.78664 0.75 9.59419L8.25 5.26407Z"
+                    fill="#3E6F9C" />
+                </svg>
+                <p class="text-[#3E6F9C] text-[14px] md:text-[18px] font-semibold">「今すぐ売る」以外の選択肢も含め、将来にとって最善の判断をご提案します。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full max-w-[964px] relative px-9 md:px-0">
+        <div class="bg-[#EAF0F6] rounded-[10px] px-4 py-6 md:px-10 md:py-8 mx-auto shadow-sm">
+          <div class="flex flex-col items-center gap-3 mb-7">
+            <span class="text-[#244A6E] text-[14px] md:text-[22px] font-semibold flex items-center gap-2">
+              <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                  stroke="#373B60" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+              </svg>
+              新規で不動産投資を始めたい方
+            </span>
+          </div>
+          <div class="flex flex-col gap-8 w-full">
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP01
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                保有物件の棚卸し・収益分析
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP02
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                売却／保有の判断
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP03
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                新たな投資戦略の設計
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP04
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                売却と購入の同時進行
+              </div>
+            </div>
+            <div class="flex items-center w-full bg-white">
+              <div
+                class="font-inter bg-[#254872] text-white font-bold rounded-l px-6 py-2 text-[17px] lg:text-[28px] w-full max-w-[200px] text-center select-none tracking-wider">
+                STEP05
+              </div>
+              <div class="text-[#254872] rounded-r px-6 py-2 text-[16px] lg:text-[18px] font-semibold w-full text-left">
+                ポートフォリオの最適化
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg width="53" height="50" viewBox="0 0 53 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M41.0938 24.25C41.0938 24.8023 41.5415 25.25 42.0938 25.25H51.1855C52.1039 25.25 52.5365 26.3844 51.8516 26.9961L26.7598 49.4053C26.3804 49.744 25.8071 49.744 25.4277 49.4053L0.335938 26.9961C-0.349027 26.3844 0.0835871 25.25 1.00195 25.25H10.0938C10.646 25.25 11.0938 24.8023 11.0938 24.25V1C11.0938 0.447715 11.5415 0 12.0938 0H40.0938C40.646 0 41.0938 0.447715 41.0938 1V24.25Z"
+                  fill="#3E6F9C" fill-opacity="0.5" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-center w-full">
+              <div
+                class="flex items-center gap-2 text-[#244A6E] text-[14px] md:text-[15px] font-semibold mb-4 border-b border-[#3E6F9CCC] pb-2">
+                <span class="font-inter font-semibold tracking-wide text-[#3E6F9C]">POINT</span>
+                <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.25 5.26407C8.58333 5.07162 8.58333 4.59049 8.25 4.39804L0.75 0.0679159C0.416666 -0.124535 0 0.116028 0 0.500928V9.16118C0 9.54608 0.416667 9.78664 0.75 9.59419L8.25 5.26407Z"
+                    fill="#3E6F9C" />
+                </svg>
+                <p class="text-[#3E6F9C] text-[14px] md:text-[18px] font-semibold"> 低収益・高リスクな物件から、より安定した資産構成へ組み替えを行います。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="our-services" class="section-container w-full bg-[#EAF0F6] text-center px-[30px] md:px-0">
+    <div class="w-full md:mb-4 lg:mb-6 xl:mb-8">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#193759] tracking-wide">
+        ちゃちゃまる不動産　お客様の声
+      </h2>
+      <p
+        class="font-inter text-center text-[20px] md:text-[24px] lg:text-[226px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#193759]/25">
+        Customer Feedback
+      </p>
+    </div>
+    <div class="flex flex-col gap-10">
+
+    </div>
+  </section>
+  <section id="consultation" class="section-container w-full">
+    <div class="w-full md:mb-4 lg:mb-6 xl:mb-8">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#193759] tracking-wide">
+        旬な物件をどこよりも早く紹介！
+      </h2>
+      <p
+        class="text-center font-inter text-[20px] md:text-[24px] lg:text-[226px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#193759]/25">
+        Our Property
+      </p>
+    </div>
+    <div class="w-full relative max-w-[1440px] mx-auto flex flex-col gap-[72px]">
+      <div class="w-full relative px-9 md:px-0">
+        <div class="block md:hidden absolute swiper-consultation-left-nav-btn top-1/2 -translate-y-1/2 left-2">
+          <button class="text-[#244A6E] text-[20px] text-center">◀</button>
+        </div>
+        <div class="block md:hidden absolute swiper-consultation-right-nav-btn top-1/2 -translate-y-1/2 right-2">
+          <button class="text-[#244A6E] text-[20px] text-center">▶</button>
+        </div>
+        <div class="relative w-full max-w-[1440px] mx-auto swiper swiper-consultation pt-[30px] pb-[55px] lg:pb-[70px]">
+          <div class="swiper-wrapper items-center">
+            <div class="flex-col bg-[#F5F7F9] rounded-[10px] lg:w-[960px] mx-auto py-6 lg:px-10 lg:py-12 gap-8 items-start">
+              <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-shrink-0 w-[48%] rounded overflow-hidden bg-[#E9F2FA] flex justify-center items-center"
+                  style="min-width:336px; min-height:174px;">
+                  <img src="assets/images/invest/palace.webp" alt="palace" class="w-full h-full object-cover">
+                </div>
+                <div class="w-[52%] flex flex-col gap-4">
+                  <h4 class="w-full text-[#244A6E] text-[22px] lg:text-[22px] text-center md:text-start font-bold">
+                    虎ノ門レオンパレス｜中古物件</h4>
+                  <table
+                    class="w-full text-left text-[#244A6E] text-[16px] md:text-[16px] font-normal leading-relaxed bg-[#F5F7F9]">
+                    <tbody>
+                      <tr class="border-b border-[#D9DEE3]">
+                        <th class="pr-8 font-normal w-20">価格</th>
+                        <td class="font-inter">7,980万円</td>
+                      </tr>
+                      <tr class="border-b border-[#D9DEE3]">
+                        <th class="pt-4 pr-4 font-normal">所在</th>
+                        <td class="pt-4">東京都港区神谷町〇丁目〇番〇号</td>
+                      </tr>
+                      <tr class="border-b border-[#D9DEE3]">
+                        <th class="pt-4 pr-4 font-normal">最寄駅</th>
+                        <td class="pt-4">
+                          神谷町駅 徒歩5分 / 六本木一丁目駅 徒歩10分
+                        </td>
+                      </tr>
+                      <tr class="border-b border-[#D9DEE3]">
+                        <th class="pt-4 pr-4 font-normal">専有</th>
+                        <td class="font-inter pt-4">
+                          65.20m<sup>2</sup>
+                        </td>
+                      </tr>
+                      <tr class="border-b border-[#D9DEE3]">
+                        <th class="pt-4 pr-4 font-normal">間取</th>
+                        <td class="font-inter pt-4">2LDK</td>
+                      </tr>
+                      <tr>
+                        <th class="pt-4 pr-4 font-normal">管理費</th>
+                        <td class="font-inter pt-4">13,200円 / 月</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination swiper-consultation-pagination flex justify-center items-center"></div>
+        </div>
+      </div>
+      <div class="w-full flex justify-center px-[30px] md:px-0">
+        <div
+          class="w-full max-w-[360px] mx-auto flex gap-4 items-end justify-center text-[#244A6E] hover:text-[#EAF0F6] bg-white hover:bg-[#193759E5] border  hover:border-[#E9F2FA] border-[#244A6E] font-semibold rounded shadow-lg py-4 xl:py-4 xl:px-6 duration-150 cursor-pointer group">
+          <span class="text-[16px] duration-150">詳しいご説明はこちら</span>
+          <svg class="hidden md:block duration-150 text-[#244A6E] group-hover:text-[#EAF0F6] w-[36px] h-[16px]"
+            viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 H40 L30 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="process-3step" class="w-full mb-6">
+    <div class="w-full">
+      <div class="w-full flex flex-col-reverse md:flex-row gap-16 md:gap-0 bg-[#244A6E]">
+        <div class="flex-1 relative flex items-center px-[30px] lg:px-0">
+          <div class="relative w-full flex flex-col items-start gap-10 md:gap-4 lg:pl-[120px] lg:pr-[80px] pt-12">
+            <h4 class="w-full text-white text-[22px] lg:text-[32px] text-center md:text-start font-bold">
+              不動産投資のメリット・デメリット</h4>
+            <p class="font-inter font-bold text-white/25 text-[14px] lg:text-[28px] leading-relaxed pb-10">
+              Advantages and Disadvantages
+            </p>
+            <p class="text-white text-[14px] lg:text-[18px] leading-relaxed font-light pb-6">
+              代表の三木自ら戸建、ワンルーム、アパート等、多種多様な「負けない不動産投資」基本〜発展まで、詳しくご説明いたします！
+            </p>
+            <div
+              class="w-full max-w-[280px] flex gap-4 items-end justify-center text-[#D9DEE3] hover:text-[#EAF0F6] hover:bg-[#244A6E] border  hover:border-[#E9F2FA] border-[#D9DEE3] font-semibold rounded shadow-lg py-3 xl:px-6 duration-150 cursor-pointer group">
+              <span class="text-[16px] duration-150">詳しくはこちら</span>
+              <svg class="duration-150 text-[#D9DEE3] group-hover:text-[#EAF0F6] w-[36px] h-[16px]" viewBox="0 0 40 20"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10 H40 L30 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <img src="assets/images/invest/advan-disadvan.webp" alt="step01" class="w-full h-auto">
+        </div>
+      </div>
+      <div class="w-full flex flex-col md:flex-row gap-16 md:gap-0 bg-white md:bg-transparent">
+        <div class="flex-1">
+          <img src="assets/images/invest/free-mail-consultation.webp" alt="step02" class="w-full h-auto">
+        </div>
+        <div class="flex-1 relative flex items-center px-[30px] lg:px-0">
+          <div class="relative w-full flex flex-col items-start gap-10 md:gap-4 lg:pl-[120px] lg:pr-[80px] pt-12">
+            <h4 class="w-full text-[#244A6E] text-[22px] lg:text-[32px] text-center md:text-start font-bold">
+              無料メール相談コーナー
+            </h4>
+            <p class="font-inter font-bold text-[#244A6E40] text-[14px] lg:text-[28px] leading-relaxed pb-10">
+              Free Mail Consultation
+            </p>
+            <p class="text-[#244A6E] text-[14px] lg:text-[18px] leading-relaxed font-light pb-6">
+              それぞれ選任の担当者が、無料で回答させていただいております。よくあるご質問から細かなご状況に関することまで、ぜひご参考ください。
+            </p>
+            <div class="w-full flex justify-start">
+              <button
+                class="flex gap-4 items-end justify-center text-[#244A6E] hover:text-[#EAF0F6] hover:bg-[#244A6E] border  hover:border-[#E9F2FA] border-[#244A6E] font-semibold rounded shadow-lg py-3 xl:px-10 duration-150 cursor-pointer group">
+                <span class="text-[16px] duration-150">無料でメール相談したい方はこちら</span>
+                <svg class="duration-150 text-[#244A6E] group-hover:text-[#EAF0F6] w-[36px] h-[16px]"
+                  viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 10 H40 L30 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex flex-col-reverse md:flex-row gap-16 md:gap-0 bg-[#244A6E]">
+        <div class="flex-1 relative flex items-center px-[30px] lg:px-0">
+          <div class="relative w-full flex flex-col items-start gap-10 md:gap-4 lg:pl-[120px] lg:pr-[80px] pt-12">
+            <h4 class="w-full text-white text-[22px] lg:text-[32px] text-center md:text-start font-bold">
+              無料オンライン相談
+            </h4>
+            <p class="font-inter font-bold text-white/25 text-[14px] lg:text-[28px] leading-relaxed pb-10">
+              Free Online Consultation
+            </p>
+            <p class="text-white text-[14px] lg:text-[18px] leading-relaxed font-light pb-6">
+              気になる物件がある、という方はもちろん、現在の資産運用や税金対策についてのお悩み、頭金や老後資金のお悩みなど、「まずは聞いてみたい」「自分にもできるのか知りたい」という方もお気軽にお問合せください！
+            </p>
+            <div class="w-full flex justify-start">
+              <button
+                class="flex gap-4 items-end justify-center text-[#D9DEE3] hover:text-[#EAF0F6] hover:bg-[#244A6E] border  hover:border-[#E9F2FA] border-[#D9DEE3] font-semibold rounded shadow-lg py-3 xl:px-10 duration-150 cursor-pointer group">
+                <span class="text-[16px] duration-150">無料オンライン相談したい方はこちら</span>
+                <svg class="duration-150 text-[#D9DEE3] group-hover:text-[#EAF0F6] w-[36px] h-[16px]"
+                  viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 10 H40 L30 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <img src="assets/images/invest/free-online-consultation.webp" alt="step03" class="w-full h-auto">
+        </div>
+      </div>
+      <div class="w-full flex flex-col md:flex-row gap-16 md:gap-0 bg-white md:bg-transparent">
+        <div class="flex-1">
+          <img src="assets/images/invest/download-doc.webp" alt="step02" class="w-full h-auto">
+        </div>
+        <div class="flex-1 relative flex items-center px-[30px] lg:px-0">
+          <div class="relative w-full flex flex-col items-start gap-10 md:gap-4 lg:pl-[120px] lg:pr-[80px] pt-12">
+            <h4 class="w-full text-[#244A6E] text-[22px] lg:text-[32px] text-center md:text-start font-bold">
+              まずは資料請求
+            </h4>
+            <p class="font-inter font-bold text-[#244A6E40] text-[14px] lg:text-[28px] leading-relaxed pb-10">
+              Download Documents
+            </p>
+            <p class="text-[#244A6E] text-[14px] lg:text-[18px] leading-relaxed font-light pb-6">
+              問い合わせの前にまず資料をチェックしたい方は、今すぐ無料ＤＬ！
+            </p>
+            <div class="w-full flex justify-start">
+              <button
+                class="flex gap-4 items-end justify-center text-[#244A6E] hover:text-[#EAF0F6] hover:bg-[#244A6E] border  hover:border-[#E9F2FA] border-[#244A6E] font-semibold rounded shadow-lg py-3 xl:px-10 duration-150 cursor-pointer group">
+                <span class="text-[16px] duration-150">今すぐ資料をダウンロード</span>
+                <svg class="duration-150 text-[#244A6E] group-hover:text-[#EAF0F6] w-[36px] h-[16px]"
+                  viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 10 H40 L30 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer id="footerSection" class="bg-[#193759] w-full pt-20 pb-24 lg:pt-[120px] lg:pb-[300px]">
+    <div
+      class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center px-12 md:px-0 gap-10">
+      <!-- Left navigation -->
+      <div class="flex-1 flex flex-row gap-12 w-full md:w-auto lg:px-8">
+        <!-- First Column -->
+        <div class="flex-1 flex flex-col gap-4 lg:gap-6 min-w-[80px]">
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">TOP</a>
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">投資用不動産</a>
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">不動産売却生募集</a>
+        </div>
+        <!-- Second Column -->
+        <div class="flex-1 flex flex-col gap-4 lg:gap-6 min-w-[80px]">
+          <a href="#"
+            class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide mt-0 font-normal">管理</a>
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">問い合わせ</a>
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">求人募集</a>
+        </div>
+      </div>
+      <!-- Centered/Right Logo Block -->
+      <div class="flex-1 flex flex-col-reverse md:flex-col items-center md:items-start gap-8 w-full md:w-auto">
+        <div class="flex items-center gap-2">
+          <img src="assets/images/logo.png" alt="ちゃちゃまる不動産DX Logo" class="w-[400px] h-auto"
+            style="filter: brightness(0) invert(1);" />
+        </div>
+        <div class="flex items-center gap-2 mt-2 md:pl-10">
+          <span class="text-[#EAF0F6] text-[14px] xl:text-[24px] tracking-wide select-none">CONTACT :
+            03-6279-3943</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <section class="w-full">
+    <div class="max-w-[1440px] mx-auto">
+
+    </div>
+  </section>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
