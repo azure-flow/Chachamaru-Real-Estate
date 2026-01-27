@@ -102,6 +102,9 @@ body {
   }
 }
 
+
+
+
 /* Mobile Navigation Slide Animation */
 #mobileNav {
   transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
@@ -129,12 +132,14 @@ body {
 
   /* Feedback slider */
   .swiper-feedback-pagination .swiper-pagination-bullet{
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     opacity: 1;
     background: #C7D2DF;
   }
   .swiper-feedback-pagination .swiper-pagination-bullet-active{
+    width: 14px;
+    height: 14px;
     background-color: #193759;
   }
 }
@@ -187,4 +192,13 @@ body {
   .writing-vertical {
     writing-mode: horizontal-tb;
   }
+  
+.swiper-feedback .swiper-slide{
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  transform: scale(0.8);
+}
+.swiper-feedback .swiper-slide-active{
+  transform: scale(1);
+  opacity: 1;
+}
 }

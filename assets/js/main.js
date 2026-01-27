@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
       centeredSlides: true,
       loop: true,
       speed: 700,
-      spaceBetween: 24,
-      slidesPerView: 1.05,
+      spaceBetween: -20,
+      slidesPerView: 1.15,
       pagination: {
         el: ".swiper-feedback-pagination",
         type: "custom",
@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
           spaceBetween: 32,
         },
         1280: {
-          slidesPerView: 3,
-          spaceBetween: 36,
+          slidesPerView: 2.9,
+          spaceBetween: 20,
         },
       },
       loopedSlides: feedbackSlideCount,
@@ -418,3 +418,6 @@ if (serviceToggleSlideBtn) {
     shown = !shown;
   });
 }
+
+
+
