@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChachaMaru | 不動産再生事業</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link href="assets/css/swiper.css" rel="stylesheet" />
+  <link href="assets/css/font.css" rel="stylesheet" />
+  <link href="assets/css/main.css" rel="stylesheet" />
+  <link href="assets/css/aos.css" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <script src="assets/css/tailwind.css"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/aos.js"></script>
+</head>
+
+<body class="relative">
+  <header class="fixed w-full justify-center bg-[#2F5E4E] md:bg-white z-30">
+    <div
+      class="max-w-[1440px] mx-auto md:h-[60px] flex flex-col md:flex-row items-center justify-center md:justify-between px-6">
+      <div class="flex items-center shrink-0 py-3 md:py-0">
+        <img src="assets/images/logo.png" alt="ロゴ" class="hidden md:block w-[325px]" />
+        <img src="assets/images/logo02.png" alt="ロゴ" class="w-[192px] md:hidden" />
+      </div>
+
+      <nav id="mobileNav"
+        class="w-full md:w-auto flex flex-col md:flex-row justify-start md:items-center xl:gap-10 overflow-hidden">
+        <a href="index.html"
+          class="min-w-[100px] text-start md:text-center font-inter text-[18px] lg:text-[16px] font-normal font-inter text-white md:text-[#2F5E4E] hover:text-[#227093] border-b border-[#616A82CC] md:border-0 transition pl-8 md:pr-0 py-3 md:py-0 mt-[30px] md:mt-0">TOP</a>
+        <a href="investment.html"
+          class="min-w-[100px] text-start md:text-center font-inter text-[18px] lg:text-[16px] font-normal font-inter text-white md:text-[#2F5E4E] hover:text-[#227093] border-b border-[#616A82CC] md:border-0 transition pl-8 md:pr-0 py-3 md:py-0 mt-2 md:mt-0">投資不動産</a>
+        <a href="rebuilding.html"
+          class="min-w-[100px] text-start md:text-center font-inter text-[18px] lg:text-[16px] font-normal font-inter text-white md:text-[#2F5E4E] hover:text-[#227093] border-b border-[#616A82CC] md:border-0 transition pl-8 md:pr-0 py-3 md:py-0 mt-2 md:mt-0">不動産再生事業</a>
+        <a href="management.html"
+          class="min-w-[100px] text-start md:text-center font-inter text-[18px] lg:text-[16px] font-normal font-inter text-white md:text-[#2F5E4E] hover:text-[#227093] border-b border-[#616A82CC] md:border-0 transition pl-8 md:pr-0 py-3 md:py-0 mt-2 md:mt-0">管理</a>
+        <button id="closeNavBtn"
+          class="flex gap-2 items-center md:hidden text-[16px] text-white md:pr-0 py-3 md:py-0 mt-4 mb-10 mx-auto">
+          閉じる
+          <svg class="w-[14px] h-[10px] pt-[2px]" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 7 L7 1 L13 7" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4 xl:gap-12">
+        <button
+          class="md:px-12 lg:px-16 xl:px-20 py-[10px] rounded-full bg-[#2F5E4E] hover:bg-white text-white hover:text-[#2F5E4E] border border-[#2F5E4E] text-12-16 font-medium shadow-sm hover:bg-[#312f46] transition">
+          資料請求
+        </button>
+        <div class="flex items-center text-[#2F5E4E] whitespace-nowrap gap-1">
+          <img src="assets/images/phone.png" alt="電話" class="md:w-[20px] lg:w-[22px] xl:w-[26px] aspect-[1]">
+          <span class="tracking-tight text-12-16 font-normal">03-6279-3943</span>
+        </div>
+      </div>
+
+      <div id="hamburgerBtn"
+        class="block md:hidden absolute top-[18px] right-6 flex justify-center flex-col text-white w-[30px] h-[20px] cursor-pointer">
+        <div class="flex flex-col items-center justify-between w-full h-full">
+          <div class="h-[2px] w-full bg-white"></div>
+          <div class="h-[2px] w-full bg-white"></div>
+          <div class="h-[2px] w-full bg-white"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="w-full h-[100vh] lg:h-[1270px]">
+    <div
+      class="w-full flex justify-center items-center lg:items-start mx-auto h-full bg-[url('assets/images/hero-rebuilding-sp.webp')] bg-cover bg-center md:bg-[url('assets/images/hero-rebuilding.webp')] bg-cover bg-top">
+      <div class="max-w-[1150px] w-full mx-auto flex flex-col lg:items-center gap-10 lg:pt-[430px]">
+        <h2
+          class="text-[32px] lg:text-[40px] xl:text-[48px] font-bold text-center text-white leading-[1.5] lg:leading-[1.7]">
+          「安心」から<br class="md:hidden">逆算した<br class="md:hidden">サービス設計
+        </h2>
+        <div class="hidden lg:flex flex-col items-center gap-4">
+          <div class="bg-white/90 py-2 px-6">
+            <h4 class="text-[#2F5E4E] font-bold text-[20px] lg:text-[22px]">根拠ある査定で、その不動産“本来の価値”を。</h4>
+          </div>
+        </div>
+        <div
+          class="hidden lg:block max-w-[1006px] w-full bg-[#FFFFFFCC] rounded py-10 px-8 mt-10 mx-auto flex flex-col items-center gap-10">
+          <div class="w-full pt-10 pb-16">
+            <h2 class="text-[#2F5E4E] text-[20px] lg:text-[22px] font-bold text-center">
+              査定で必ずお伝えする３点
+            </h2>
+          </div>
+          <div class="w-full flex flex-col lg:flex-row items-start gap-4 pb-6">
+            <div class="w-full flex flex-col justify-start items-center gap-4 md:gap-6">
+              <img src="assets/images/market-price.webp" alt="買戻し特約" class="w-[120px] lg:w-[166px] h-auto" />
+              <p class="text-[#2F5E4E] flex items-center gap-2 text-[18px] font-bold text-center">
+                <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                    stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                相場
+              </p>
+            </div>
+            <div class="w-full flex flex-col justify-start items-center gap-4 md:gap-6">
+              <img src="assets/images/condition.webp" alt="買戻し特約" class="w-[120px] lg:w-[166px] h-auto" />
+              <p class="text-[#2F5E4E] flex items-center gap-2 text-[18px] font-bold text-start">
+                <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                    stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                条件
+              </p>
+            </div>
+            <div class="w-full flex flex-col justify-start items-center gap-4 md:gap-6">
+              <img src="assets/images/evaluation-points.webp" alt="買戻し特約" class="w-[120px] lg:w-[166px] h-auto" />
+              <p class="text-[#2F5E4E] flex items-center gap-2 text-[18px] font-bold text-center">
+                <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                    stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+                </svg>
+                評価ポイント
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="w-full py-[60px] md:hidden">
+    <div class="w-full flex justify-center items-center mx-auto h-full">
+      <div class="flex flex-col items-center justify-center w-[114px] border-t border-b border-[#2F5E4E] py-8">
+        <p
+          class="text-[#2F5E4E] text-[16px] leading-[1] tracking-[8px] font-semibold whitespace-pre-line text-start [writing-mode:tb]">
+          根拠ある査定で、<br>
+          その不動産「本来の価値」を。<br>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- mobile menu section -->
+  <section class="p-[22px] pt-[88px] md:hidden">
+    <div class="w-full flex justify-center items-center mx-auto">
+      <div
+        class="w-full max-w-[420px] bg-[#eaf3ef80] border-t border-b border-[#19375999] py-7 px-6 flex flex-col items-center">
+        <div class="text-[#2F5E4E] text-[16px] tracking-[2px] font-semibold flex items-center justify-center gap-0">
+          <svg width="32" height="17" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="inline-block align-middle" style="vertical-align:middle;">
+            <!-- Row 1 -->
+            <rect x="6" y="3" width="2" height="2" fill="#2F5E4E" />
+            <rect x="12" y="3" width="12" height="2" fill="#2F5E4E" />
+            <!-- Row 2 -->
+            <rect x="6" y="10" width="2" height="2" fill="#2F5E4E" />
+            <rect x="12" y="10" width="12" height="2" fill="#2F5E4E" />
+            <!-- Row 3 -->
+            <rect x="6" y="17" width="2" height="2" fill="#2F5E4E" />
+            <rect x="12" y="17" width="12" height="2" fill="#2F5E4E" />
+          </svg>
+          <span>目次</span>
+        </div>
+        <div class="w-full" id="mobileMenuToggle">
+          <div class="w-full flex justify-center items-center">
+            <button id="showMenuBtn"
+              class="min-w-[222px] border border-[#2F5E4Ee6] text-[#2F5E4E] px-4 py-1 mt-6 text-[12px] transition hover:bg-[#eaf1f6] flex items-center justify-center gap-2 font-normal">
+              <span>表示して見たいところだけ見る</span>
+              <svg class="ml-1" width="19" height="19" viewBox="0 0 24 24" fill="none">
+                <path d="M7 10l5 5 5-5" stroke="#2F5E4E" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Slide "modal": use max-height & transition for smooth expand/collapse -->
+          <div id="mobileMenuModal" class="w-full mt-4 overflow-hidden transition-all duration-500"
+            style="max-height: 0; opacity: 0;" aria-hidden="true">
+            <ul class="flex flex-col gap-4 text-[#2F5E4E] font-semibold text-[12px]">
+              <li>
+                <a href="#our-services"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#2F5E4E99" />
+                  </svg>
+                  <span>査定で必ずお伝えする3点</span>
+                </a>
+              </li>
+              <li>
+                <a href="#about-us"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#2F5E4E99" />
+                  </svg>
+                  <span>査定の根拠</span>
+                </a>
+              </li>
+              <li>
+                <a href="#peace-of-mind"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#2F5E4E99" />
+                  </svg>
+                  <span>買取の流れ</span>
+                </a>
+              </li>
+              <li>
+                <a href="#process-3step"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#2F5E4E99" />
+                  </svg>
+                  <span>買取事例</span>
+                </a>
+              </li>
+              <li>
+                <a href="#consultation"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#2F5E4E99" />
+                  </svg>
+                  <span>口コミ</span>
+                </a>
+              </li>
+              <li>
+                <a href="#meritDemeritSection"
+                  class="flex items-center w-full px-4 py-2 border-b border-[#b2c2d9] bg-[#F5F7FA] hover:bg-[#EAF1F6]">
+                  <svg class="mr-3" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <polygon points="5,6 5,18 19,12" fill="#2F5E4E99" />
+                  </svg>
+                  <span>無料相談</span>
+                </a>
+              </li>
+            </ul>
+            <div class="flex justify-center mt-10">
+              <button id="closeMenuBtn"
+                class="border border-[#2F5E4Ee6] text-[#2F5E4E] px-6 py-1 text-[10px] transition hover:bg-[#eaf1f6] font-normal flex items-center gap-2">
+                閉じる
+                <svg class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <line x1="7" y1="7" x2="17" y2="17" stroke="#2F5E4E" stroke-width="1" stroke-linecap="round" />
+                  <line x1="17" y1="7" x2="7" y2="17" stroke="#2F5E4E" stroke-width="1" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const showMenuBtn = document.getElementById("showMenuBtn");
+            const closeMenuBtn = document.getElementById("closeMenuBtn");
+            const mobileMenuModal = document.getElementById("mobileMenuModal");
+
+            // helper: get current expanded state
+            function isExpanded() {
+              return mobileMenuModal.style.maxHeight && mobileMenuModal.style.maxHeight !== "0px";
+            }
+
+            function expandMenu() {
+              mobileMenuModal.classList.remove('hidden');
+              mobileMenuModal.style.opacity = "1";
+              mobileMenuModal.setAttribute("aria-hidden", "false");
+              // Temporarily set height to scrollHeight to trigger transition
+              mobileMenuModal.style.maxHeight = mobileMenuModal.scrollHeight + "px";
+              // Hide showMenuBtn
+              showMenuBtn.style.display = "none";
+            }
+
+            function collapseMenu() {
+              mobileMenuModal.style.opacity = "0";
+              mobileMenuModal.setAttribute("aria-hidden", "true");
+              mobileMenuModal.style.maxHeight = "0";
+              // Show showMenuBtn after animation ends
+              setTimeout(() => {
+                if (!isExpanded()) {
+                  mobileMenuModal.classList.add('hidden');
+                  showMenuBtn.style.display = "";
+                }
+              }, 500); // match duration-500
+            }
+
+            showMenuBtn.addEventListener("click", function () {
+              // Expand only if not already expanded
+              if (!isExpanded()) {
+                expandMenu();
+              }
+            });
+
+            closeMenuBtn.addEventListener("click", function () {
+              if (isExpanded()) {
+                collapseMenu();
+              }
+            });
+
+            // Ensure menu collapsed at page load, show button
+            collapseMenu();
+            showMenuBtn.style.display = "";
+          });
+        </script>
+      </div>
+  </section>
+
+  <!-- mobile Section -->
+  <section class="w-full md:hidden">
+    <div class="w-full bg-[#FFFFFFCC] rounded py-10 px-8 mx-auto flex flex-col items-center gap-3 md:gap-10">
+      <div class="w-full pt-10 pb-6">
+        <h2 class="text-[#2F5E4E] text-[24px] font-bold text-center">
+          査定で必ずお伝えする３点
+        </h2>
+        <p class="font-inter text-[#2F5E4E40] text-[20px] font-bold text-center">3 Things to Tell</p>
+      </div>
+      <div class="w-full flex flex-col lg:flex-row items-start gap-10 md:gap-4 pb-6">
+        <div class="w-full flex justify-between items-center gap-4 md:gap-6">
+          <p class="text-[#2F5E4E] flex items-center gap-0 pl-6 text-[18px] font-bold text-center">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            相場　　
+          </p>
+          <img src="assets/images/market-price.webp" alt="買戻し特約" class="w-[145px] h-auto" />
+        </div>
+        <div class="w-full flex justify-between items-center gap-4 md:gap-6">
+          <img src="assets/images/condition.webp" alt="買戻し特約" class="w-[145px] h-auto" />
+          <p class="text-[#2F5E4E] flex items-center gap-4 pr-8 text-[18px] font-bold text-center">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            条件
+          </p>
+        </div>
+        <div class="w-full flex justify-between items-center gap-4 md:gap-6">
+          <p class="text-[#2F5E4E] flex items-center gap-4 pl-6 text-[18px] font-bold text-start">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.5 8.02734L7.76811 14.9374C7.9688 15.1586 8.31744 15.1557 8.51438 14.9311L20.2923 1.50005"
+                stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            評価<br>ポイント
+          </p>
+          <img src="assets/images/evaluation-points.webp" alt="買戻し特約" class="w-[145px] h-auto" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lg:pt-36 xl:pt-40 w-full !pb-0">
+    <div class="w-full md:mb-4 lg:mb-6 xl:mb-8 hidden lg:block">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#264D41] tracking-wide">
+        査定の根拠
+      </h2>
+      <p
+        class="font-inter text-center text-[20px] md:text-[24px] lg:text-[26px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#125941]/25">
+        Proof of Investigation
+      </p>
+    </div>
+    <div class="w-full">
+      <div class="w-full flex flex-col-reverse md:flex-row gap-20 md:gap-0 bg-white md:bg-transparent">
+        <div class="flex-1 flex items-center relative">
+          <div class="flex items-center pb-14 lg:pb-0 px-[30px] lg:pl-[120px] lg:pr-[75px]">
+            <div class="relative w-full flex flex-col items-start md:gap-12">
+              <h3
+                class="hidden md:block absolute top-[-60px] z-[0] left-0 text-[80px] text-[#EEF1F0] font-inter font-bold">
+                Market Price
+              </h3>
+              <div class="relative w-full flex items-center gap-2 z-[1]">
+                <h4
+                  class="w-full pb-12 md:p-0 text-center lg:text-start text-[#2F5E4E] text-[22px] font-semibold md:font-bold">
+                  相場
+                </h4>
+              </div>
+              <p class="text-[#3F4D5A] text-14-18 font-regular tracking-wide leading-[2]">
+                近隣エリアの取引事例・需給（売れ行き）・市況をもとに、同じ条件ならどのくらいの価格帯になりやすいかを整理します。<br class="block lg:hidden"><br
+                  class="block lg:hidden">相場の参考として、国土交通省が提供する不動産情報ライブラリ（取引価格、地価公示等の情報）も活用できます。
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <img src="assets/images/market-place.webp" alt="step01" class="w-full h-auto">
+        </div>
+      </div>
+      <div class="w-full flex flex-col md:flex-row gap-16 md:gap-0 bg-white md:bg-transparent">
+        <div class="flex-1">
+          <img src="assets/images/requirement.webp" alt="step02" class="w-full h-auto">
+        </div>
+        <div class="flex-1 flex items-center relative">
+          <div class="flex items-center pb-14 lg:pb-0 px-[30px] lg:pl-[75px] lg:pr-[75px]">
+            <div class="relative w-full flex flex-col items-start md:gap-12">
+              <h3
+                class="hidden md:block absolute top-[-60px] z-[0] left-0 text-[80px] text-[#EEF1F0] font-inter font-bold">
+                Requirement
+              </h3>
+              <div class="relative w-full flex items-center gap-2 z-[1]">
+                <h4
+                  class="w-full pb-12 md:p-0 text-center lg:text-start text-[#2F5E4E] text-[22px] font-semibold md:font-bold">
+                  条件
+                </h4>
+              </div>
+              <div class="flex flex-col gap-4">
+                <p class="text-[#3F4D5A] text-14-18 font-regular tracking-wide leading-[1.8]">
+                  買取価格は、物件そのものだけでなく売却条件でも変わります。
+                </p>
+                <hr class="block lg:hidden w-full border-t border-[#2F5E4E]/40">
+                <p class="text-[#3F4D5A] text-14-18 font-regular tracking-wide leading-[1.8] hidden lg:block">
+                  例：<br class="">
+                  引渡し時期／現況（残置物の有無）／居住中・賃貸中／境界・越境／
+                  共有名義／ローン残など
+                </p>
+                <div class="lg:hidden flex flex-col gap-4">
+                  <p class="text-[#264D41] font-medium text-[16px] text-center">例</p>
+                  <div class="flex gap-y-2 gap-x-8 text-[#264D41] text-sm">
+                    <div class="flex flex-col gap-3">
+                      <div class="flex items-center gap-2">
+                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                          class="flex-shrink-0">
+                          <path
+                            d="M1.11096 4.96875L4.7851 9.01917C4.98579 9.24041 5.33443 9.23748 5.53137 9.0129L12.5672 0.989576"
+                            stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" />
+                        </svg>
+                        <span>引渡し時期</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                          class="flex-shrink-0">
+                          <path
+                            d="M1.11096 4.96875L4.7851 9.01917C4.98579 9.24041 5.33443 9.23748 5.53137 9.0129L12.5672 0.989576"
+                            stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" />
+                        </svg>
+                        <span>居住中・賃貸中</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                          class="flex-shrink-0">
+                          <path
+                            d="M1.11096 4.96875L4.7851 9.01917C4.98579 9.24041 5.33443 9.23748 5.53137 9.0129L12.5672 0.989576"
+                            stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" />
+                        </svg>
+                        <span>共有名義</span>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                      <div class="flex items-center gap-2">
+                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                          class="flex-shrink-0">
+                          <path
+                            d="M1.11096 4.96875L4.7851 9.01917C4.98579 9.24041 5.33443 9.23748 5.53137 9.0129L12.5672 0.989576"
+                            stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" />
+                        </svg>
+                        <span>現況（残置物の有無）</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                          class="flex-shrink-0">
+                          <path
+                            d="M1.11096 4.96875L4.7851 9.01917C4.98579 9.24041 5.33443 9.23748 5.53137 9.0129L12.5672 0.989576"
+                            stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" />
+                        </svg>
+                        <span>境界・越境</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"
+                          class="flex-shrink-0">
+                          <path
+                            d="M1.11096 4.96875L4.7851 9.01917C4.98579 9.24041 5.33443 9.23748 5.53137 9.0129L12.5672 0.989576"
+                            stroke="#2F5E4E" stroke-opacity="0.5" stroke-width="3" />
+                        </svg>
+                        <span>ローン残 など</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex flex-col-reverse md:flex-row gap-20 md:gap-0 bg-white md:bg-transparent">
+        <div class="flex-1 relative flex items-center px-[30px] lg:px-0">
+          <div
+            class="relative w-full flex flex-col items-center md:items-start gap-10 md:gap-12 lg:pl-[120px] lg:pr-[80px] pb-10">
+            <h4 class="text-[#2F5E4E] text-[22px] lg:text-[22px] font-bold">評価ポイント</h4>
+            <p class="text-[#34495E] text-[14px] lg:text-[18px] leading-[2]">
+              「どこがプラスで、どこがマイナスか」を曖昧にせず、評価の観点（ポイント）で整理します。 物件ごとの“評価の見立て”が、価格の納得感につながります。
+            </p>
+          </div>
+        </div>
+        <div class="flex-1">
+          <img src="assets/images/evaluation.webp" alt="step03" class="w-full h-auto">
+        </div>
+      </div>
+  </section>
+
+  <section class="section-container w-full bg-[#EAF3EF] text-center px-[30px] md:px-0">
+    <div class="w-full md:mb-4 lg:mb-6 xl:mb-8">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#264D41] tracking-wide">
+        買取の流れ
+      </h2>
+      <p
+        class="font-inter text-center text-[20px] md:text-[24px] lg:text-[26px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#125941]/25">
+        Flow of Purchase
+      </p>
+    </div>
+    <div class="flex flex-col gap-10">
+      <div class="w-full flex justify-center">
+        <div class="w-full max-w-[964px] relative">
+          <div class="rounded-[10px] lg:px-4 pt-16 md:px-10 md:pt-12 mx-auto">
+            <div class="flex lg:hidden flex-col items-center gap-3 mb-10">
+              <span class="text-[#2F5E4E] text-[14px] md:text-[22px] font-normal flex items-center gap-2">
+                不動産買取の基本フロー
+              </span>
+            </div>
+            <div class="flex flex-col gap-4 lg:gap-9 w-full">
+              <div class="flex flex-col lg:flex-row items-center w-full bg-white">
+                <div
+                  class="relative font-inter bg-[#2F5E4E] text-white font-medium lg:font-bold rounded-sm lg:rounded-l py-[6px] lg:py-2 text-[20px] lg:text-[28px] w-full lg:max-w-[200px] text-center select-none tracking-wider">
+                  STEP01
+                  <div class="absolute right-1/2 translate-x-1/2 bottom-[-27px] text-[#2F5E4E] text-[30px] font-bold">
+                    ▼
+                  </div>
+                </div>
+                <div
+                  class="text-[#3F4D5A] rounded-r px-[10px] lg:px-6 pb-6 pt-7 lg:py-2 text-[14px] lg:text-[18px] font-semibold w-full text-center lg:text-start leading-[2] lg:leading-normal">
+                  まずは弊社へご相談・査定依頼<br class="block md:hidden">
+                  <span
+                    class="hidden md:inline-block text-[12px] lg:text-[14px] font-normal lg:pl-5">（ご相談からご提案までの流れ）</span>
+                  <span
+                    class="inline-block md:hidden text-[12px] lg:text-[14px] font-normal lg:pl-5">ご相談からご提案までの流れ</span>
+                </div>
+              </div>
+              <div class="flex flex-col lg:flex-row items-center w-full bg-white">
+                <div
+                  class="relative font-inter bg-[#2F5E4E] text-white font-medium lg:font-bold rounded-sm lg:rounded-l py-[6px] lg:py-2 text-[20px] lg:text-[28px] w-full lg:max-w-[200px] text-center select-none tracking-wider">
+                  STEP02
+                  <div class="absolute right-1/2 translate-x-1/2 bottom-[-27px] text-[#2F5E4E] text-[30px] font-bold">
+                    ▼
+                  </div>
+                </div>
+                <div
+                  class="text-[#3F4D5A] rounded-r px-[10px] lg:px-6 pb-6 pt-7 lg:py-2 text-[14px] lg:text-[18px] font-semibold w-full text-center lg:text-start leading-[2] lg:leading-normal">
+                  査定<br class="block md:hidden">
+                  <span
+                    class="hidden md:inline-block text-[12px] lg:text-[14px] font-normal lg:pl-5">（机上→必要に応じて訪問）</span>
+                  <span class="inline-block md:hidden text-[12px] lg:text-[14px] font-normal lg:pl-5">机上→必要に応じて訪問</span>
+                </div>
+              </div>
+              <div class="flex flex-col lg:flex-row items-center w-full bg-white">
+                <div
+                  class="relative font-inter bg-[#2F5E4E] text-white font-medium lg:font-bold rounded-sm lg:rounded-l py-[6px] lg:py-2 text-[20px] lg:text-[28px] w-full lg:max-w-[200px] text-center select-none tracking-wider">
+                  STEP03
+                  <div class="absolute right-1/2 translate-x-1/2 bottom-[-27px] text-[#2F5E4E] text-[30px] font-bold">
+                    ▼
+                  </div>
+                </div>
+                <div
+                  class="text-[#3F4D5A] rounded-r px-[10px] lg:px-6 pb-6 pt-7 lg:py-2 text-[14px] lg:text-[18px] font-semibold w-full text-center lg:text-start leading-[2] lg:leading-normal">
+                  買取価格の提示 + 条件の提示<br class="block md:hidden">
+                  <span
+                    class="hidden md:inline-block text-[12px] lg:text-[14px] font-normal lg:pl-5">（いつまでに／残置物／契約不適合責任など）</span>
+                  <span
+                    class="inline-block md:hidden text-[12px] lg:text-[14px] font-normal lg:pl-5">いつまでに／残置物／契約不適合責任など</span>
+                </div>
+              </div>
+              <div class="flex flex-col lg:flex-row items-center w-full bg-white">
+                <div
+                  class="relative font-inter bg-[#2F5E4E] text-white font-medium lg:font-bold rounded-sm lg:rounded-l py-[6px] lg:py-2 text-[20px] lg:text-[28px] w-full lg:max-w-[200px] text-center select-none tracking-wider">
+                  STEP04
+                  <div class="absolute right-1/2 translate-x-1/2 bottom-[-27px] text-[#2F5E4E] text-[30px] font-bold">
+                    ▼
+                  </div>
+                </div>
+                <div
+                  class="text-[#3F4D5A] rounded-r px-[10px] lg:px-6 pb-6 pt-7 lg:py-2 text-[14px] lg:text-[18px] font-semibold w-full text-center lg:text-start leading-[2] lg:leading-normal">
+                  条件調整・最終合意<br class="block md:hidden">
+                  <span
+                    class="hidden md:inline-block text-[12px] lg:text-[14px] font-normal lg:pl-5">（引渡し日、現況のまま可否、必要書類、費用負担など）</span>
+                  <span
+                    class="inline-block md:hidden text-[12px] lg:text-[14px] font-normal lg:pl-5">引渡し日、現況のまま可否、必要書類、費用負担など</span>
+                </div>
+              </div>
+              <div class="flex flex-col lg:flex-row items-center w-full bg-white">
+                <div
+                  class="relative font-inter bg-[#2F5E4E] text-white font-medium lg:font-bold rounded-sm lg:rounded-l py-[6px] lg:py-2 text-[20px] lg:text-[28px] w-full lg:max-w-[200px] text-center select-none tracking-wider">
+                  STEP05
+                  <div class="absolute right-1/2 translate-x-1/2 bottom-[-27px] text-[#2F5E4E] text-[30px] font-bold">
+                    ▼
+                  </div>
+                </div>
+                <div
+                  class="text-[#3F4D5A] rounded-r px-[10px] lg:px-6 pb-6 pt-7 lg:py-2 text-[14px] lg:text-[18px] font-semibold w-full text-center lg:text-start leading-[2] lg:leading-normal">
+                  売買契約<br class="block md:hidden">
+                  <span
+                    class="hidden md:inline-block text-[12px] lg:text-[14px] font-normal lg:pl-5">（重要事項説明→契約書署名捺印）</span>
+                  <span
+                    class="inline-block md:hidden text-[12px] lg:text-[14px] font-normal lg:pl-5">重要事項説明→契約書署名捺印</span>
+                </div>
+              </div>
+              <div class="flex flex-col lg:flex-row items-center w-full bg-white">
+                <div
+                  class="relative font-inter bg-[#2F5E4E] text-white font-medium lg:font-bold rounded-sm lg:rounded-l py-[6px] lg:py-2 text-[20px] lg:text-[28px] w-full lg:max-w-[200px] text-center select-none tracking-wider">
+                  STEP06
+                  <div class="absolute right-1/2 translate-x-1/2 bottom-[-27px] text-[#2F5E4E] text-[30px] font-bold">
+                    ▼
+                  </div>
+                </div>
+                <div
+                  class="text-[#3F4D5A] rounded-r px-[10px] lg:px-6 pb-6 pt-7 lg:py-2 text-[14px] lg:text-[18px] font-semibold w-full text-center lg:text-start leading-[2] lg:leading-normal">
+                  決済・引渡し準備<br class="block md:hidden">
+                  <span
+                    class="hidden md:inline-block text-[12px] lg:text-[14px] font-normal lg:pl-5">（引越し／書類準備／ローンがあれば抹消準備）</span>
+                  <span
+                    class="inline-block md:hidden text-[12px] lg:text-[14px] font-normal lg:pl-5">引越し／書類準備／ローンがあれば抹消準備</span>
+                </div>
+              </div>
+              <div class="flex flex-col lg:flex-row items-center w-full bg-white">
+                <div
+                  class="relative font-inter bg-[#2F5E4E] text-white font-medium lg:font-bold rounded-sm lg:rounded-l py-[6px] lg:py-2 text-[20px] lg:text-[28px] w-full lg:max-w-[200px] text-center select-none tracking-wider">
+                  STEP07
+                  <div class="absolute right-1/2 translate-x-1/2 bottom-[-27px] text-[#2F5E4E] text-[30px] font-bold">
+                    ▼
+                  </div>
+                </div>
+                <div
+                  class="text-[#3F4D5A] rounded-r px-[10px] lg:px-6 pb-6 pt-7 lg:py-2 text-[14px] lg:text-[18px] font-semibold w-full text-center lg:text-start leading-[2] lg:leading-normal">
+                  残代金決済・登記・引渡し
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-container w-full bg-[#FAFBFC] text-center px-[30px] md:px-0">
+    <div class="w-full md:mb-4 lg:mb-6 xl:mb-8">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#125941] tracking-wide">
+        買取事例
+      </h2>
+      <p
+        class="font-inter text-center text-[20px] md:text-[24px] lg:text-[26px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#264D41]/25">
+        Our Cases
+      </p>
+      <p
+        class="text-center mt-16 md:mt-20 lg:mt-24 xl:mt-28 max-w-3xl mx-auto text-14-18 font-regular md:font-semibold tracking-wider leading-[2] text-[#264D41]">
+        このような散らかって長年放置されていた<br class="block md:hidden">戸建ても買取可能です。
+      </p>
+    </div>
+
+  </section>
+  <section class="section-container w-full bg-[#F5F7F9] text-center">
+    <div class="w-full mb-10 md:mb-4 lg:mb-6 xl:mb-8">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#125941] tracking-wide">
+        口コミ
+      </h2>
+      <p
+        class="font-inter text-center text-[20px] md:text-[24px] lg:text-[26px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#125941]/25">
+        Reviews
+      </p>
+    </div>
+    <div class="flex flex-col gap-10">
+      <div class="w-full">
+        <div class="relative w-full max-w-[1440px] mx-auto overflow-hidden pb-14 lg:pb-20">
+          <div class="swiper swiper-feedback overflow-visible">
+            <div class="swiper-wrapper items-stretch">
+              <!-- Slide Item -->
+              <div class="swiper-slide h-auto">
+                <div class="h-full bg-white shadow-lg rounded px-8 py-7 md:px-10 md:py-[30px] text-left">
+                  <div class="w-full flex justify-center mb-6">
+                    <img src="assets/images/customer04.webp" alt="feedback icon"
+                      class="max-w-[208px] lg:max-w-[220px] w-full h-full object-cover">
+                  </div>
+                  <div class="w-full flex justify-center items-center">
+                    <div
+                      class="w-full lg:w-fit flex flex-wrap justify-center gap-4 text-[#2F5E4E] border-b border-[] pb-4 mb-6 lg:mb-10">
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">35<span
+                          class="text-[10px] md:text-[13px] lg:text-[20px]">歳</span></span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">男性</span>
+                      <span
+                        class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">IT系会社員</span>
+                    </div>
+                  </div>
+                  <p class="text-[#2F5E4E] text-[12px] md:text-[16px] leading-[1.7]">
+                    投資用の区分マンションを2部屋、他社から買いましたが、25万円程毎年赤字になっていました。
+                    <br><br>
+                    こちらでは買取もしてくれるとのことで相談したところ、＋300円の利益で買取してもらえました。そのあとこちらで別の区分マンションを3件購入し、年間収入を継続的に得られるようになりました。
+                    <br><br>
+                    また、借主さんともやり取りしてくれるので部屋の様子についても心配が減りました。
+                  </p>
+                </div>
+              </div>
+              <!-- Slide Item -->
+              <div class="swiper-slide h-auto">
+                <div class="h-full bg-white shadow-lg rounded px-8 py-7 md:px-10 md:py-[30px] text-left">
+                  <div class="w-full flex justify-center mb-6">
+                    <img src="assets/images/customer05.webp" alt="feedback icon"
+                      class="max-w-[208px] lg:max-w-[220px] w-full h-full object-cover">
+                  </div>
+                  <div class="w-full flex justify-center items-center">
+                    <div
+                      class="w-full lg:w-fit flex flex-wrap justify-center gap-4 text-[#2F5E4E] border-b border-[] pb-4 mb-6 lg:mb-10">
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">45<span
+                          class="text-[10px] md:text-[13px] lg:text-[20px]">歳</span></span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">男性</span>
+                      <span
+                        class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">IT系会社員</span>
+                    </div>
+                  </div>
+                  <p class="text-[#2F5E4E] text-[12px] md:text-[16px] leading-[1.7]">
+                    はじめは変わった名前だなと思いました笑
+                    <br><br>
+                    遺産相続で不動産を引き継いだあと、いろいろな業者から連絡が来ていたため、最初少しきつく当たってしまったこともあったかもしれないですが、最後までしっかり丁寧に対応してもらいました。
+                    <br><br>
+                    ここに頼めてよかったなと思います。
+                  </p>
+                </div>
+              </div>
+              <!-- Slide Item -->
+              <div class="swiper-slide h-auto">
+                <div class="h-full bg-white shadow-lg rounded px-8 py-7 md:px-10 md:py-[30px] text-left">
+                  <div class="w-full flex justify-center mb-6">
+                    <img src="assets/images/customer06.webp" alt="feedback icon"
+                      class="max-w-[208px] lg:max-w-[220px] w-full h-full object-cover">
+                  </div>
+                  <div class="w-full flex justify-center items-center">
+                    <div
+                      class="w-full lg:w-fit flex flex-wrap justify-center gap-4 text-[#2F5E4E] border-b border-[] pb-4 mb-6 lg:mb-10">
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">30<span
+                          class="text-[10px] md:text-[13px] lg:text-[20px]">代</span></span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">女性</span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">看護師</span>
+                    </div>
+                  </div>
+                  <p class="text-[#2F5E4E] text-[12px] md:text-[16px] leading-[1.7]">
+                    別の会社から投資用の一棟マンションを買いましたが、ずっと赤字が続いており、とても不安でした。
+                    <br><br>
+                    こちらに相談してみたら、利回りは下がるけどこのマンションを売って別のマンションを買った方がいいと提案いただきました。築年数も下がるので不安もありましたが、周辺情報なども調べてくれて賃貸管理もしてくれるので前のマンションを売っておすすめいただいた物を買いました。
+                    <br><br>
+                    将来の貯蓄のためにも、いづれ売るときのためにもいい買い物ができたなと感じます。
+                  </p>
+                </div>
+              </div>
+              <!-- Slide Item -->
+              <div class="swiper-slide h-auto">
+                <div class="h-full bg-white shadow-lg rounded px-8 py-7 md:px-10 md:py-[30px] text-left">
+                  <div class="w-full flex justify-center mb-6">
+                    <img src="assets/images/customer04.webp" alt="feedback icon"
+                      class="max-w-[208px] lg:max-w-[220px] w-full h-full object-cover">
+                  </div>
+                  <div class="w-full flex justify-center items-center">
+                    <div
+                      class="w-full lg:w-fit flex flex-wrap justify-center gap-4 text-[#2F5E4E] border-b border-[] pb-4 mb-6 lg:mb-10">
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">38<span
+                          class="text-[10px] md:text-[13px] lg:text-[20px]">歳</span></span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">女性</span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">公務員</span>
+                    </div>
+                  </div>
+                  <p class="text-[#2F5E4E] text-[12px] md:text-[16px] leading-[1.7]">
+                    投資用の区分マンションを2部屋、他社から買いましたが、25万円程毎年赤字になっていました。
+                    <br><br>
+                    こちらでは買取もしてくれるとのことで相談したところ、＋300円の利益で買取してもらえました。そのあとこちらで別の区分マンションを3件購入し、年間収入を継続的に得られるようになりました。
+                    <br><br>
+                    また、借主さんともやり取りしてくれるので部屋の様子についても心配が減りました。
+                  </p>
+                </div>
+              </div>
+              <!-- Slide Item -->
+              <div class="swiper-slide h-auto">
+                <div class="h-full bg-white shadow-lg rounded px-8 py-7 md:px-10 md:py-[30px] text-left">
+                  <div class="w-full flex justify-center mb-6">
+                    <img src="assets/images/customer05.webp" alt="feedback icon"
+                      class="max-w-[208px] lg:max-w-[220px] w-full h-full object-cover">
+                  </div>
+                  <div class="w-full flex justify-center items-center">
+                    <div
+                      class="w-full lg:w-fit flex flex-wrap justify-center gap-4 text-[#2F5E4E] border-b border-[] pb-4 mb-6 lg:mb-10">
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">45<span
+                          class="text-[10px] md:text-[13px] lg:text-[20px]">歳</span></span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">男性</span>
+                      <span
+                        class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">IT系会社員</span>
+                    </div>
+                  </div>
+                  <p class="text-[#2F5E4E] text-[12px] md:text-[16px] leading-[1.7]">
+                    はじめは変わった名前だなと思いました笑
+                    <br><br>
+                    遺産相続で不動産を引き継いだあと、いろいろな業者から連絡が来ていたため、最初少しきつく当たってしまったこともあったかもしれないですが、最後までしっかり丁寧に対応してもらいました。
+                    <br><br>
+                    ここに頼めてよかったなと思います。
+                  </p>
+                </div>
+              </div>
+              <!-- Slide Item -->
+              <div class="swiper-slide h-auto">
+                <div class="h-full bg-white shadow-lg rounded px-8 py-7 md:px-10 md:py-[30px] text-left">
+                  <div class="w-full flex justify-center mb-6">
+                    <img src="assets/images/customer06.webp" alt="feedback icon"
+                      class="max-w-[208px] lg:max-w-[220px] w-full h-full object-cover">
+                  </div>
+                  <div class="w-full flex justify-center items-center">
+                    <div
+                      class="w-full lg:w-fit flex flex-wrap justify-center gap-4 text-[#2F5E4E] border-b border-[] pb-4 mb-6 lg:mb-10">
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">30<span
+                          class="text-[10px] md:text-[13px] lg:text-[20px]">代</span></span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">女性</span>
+                      <span class="text-[12px] md:text-[13px] lg:text-[20px] bg-[#EAF0F6] px-3 py-1 rounded">看護師</span>
+                    </div>
+                  </div>
+                  <p class="text-[#2F5E4E] text-[12px] md:text-[16px] leading-[1.7]">
+                    別の会社から投資用の一棟マンションを買いましたが、ずっと赤字が続いており、とても不安でした。
+                    <br><br>
+                    こちらに相談してみたら、利回りは下がるけどこのマンションを売って別のマンションを買った方がいいと提案いただきました。築年数も下がるので不安もありましたが、周辺情報なども調べてくれて賃貸管理もしてくれるので前のマンションを売っておすすめいただいた物を買いました。
+                    <br><br>
+                    将来の貯蓄のためにも、いづれ売るときのためにもいい買い物ができたなと感じます。
+                  </p>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="swiper-pagination swiper-feedback-pagination flex justify-center items-center mt-40 gap-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="consultation" class="section-container w-full">
+    <div class="w-full md:mb-4 lg:mb-6 xl:mb-8 px-[30px] md:px-0">
+      <h2
+        class="text-center text-[24px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-[#125941] tracking-wide">
+        無料相談
+      </h2>
+      <p
+        class="text-center font-inter text-[20px] md:text-[24px] lg:text-[26px] xl:text-[28px] mt-1 md:mt-2 lg:mt-3 xl:mt-4 font-bold text-[#125941]/25">
+        Free Consultation
+      </p>
+      <p
+        class="text-start md:text-center mt-16 md:mt-20 lg:mt-24 xl:mt-28 max-w-3xl mx-auto text-14-18 font-regular md:font-semibold tracking-wider leading-[2] text-[#2F5E4E]">
+        無料相談は、メール、電話、オンラインなどご希望の方法で行っております。<br>「まだ売るかわからない」「迷っている」などという方も、お気軽にお問合せください。
+      </p>
+    </div>
+    <div class="w-full relative max-w-[1440px] mx-auto flex flex-col gap-[72px] pt-10">
+      <div class="w-full flex justify-center px-[30px] md:px-0">
+        <div
+          class="w-full max-w-[360px] mx-auto flex gap-4 items-end justify-center text-[#2F5E4E] hover:text-[#EAF0F6] bg-white hover:bg-[#2F5E4E] border  hover:border-[#E9F2FA] border-[#2F5E4E] font-semibold rounded shadow-lg py-[10px] xl:py-4 xl:px-6 duration-150 cursor-pointer group">
+          <span class="text-[14px] lg:text-[16px] duration-150">まずは、ご相談・査定依頼から</span>
+          <svg class="duration-150 text-[#2F5E4E] group-hover:text-[#EAF0F6] w-[32px] lg:w-[36px] h-[14px] lg:h-[16px]"
+            viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 10 H40 L30 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer id="footerSection" class="bg-[#193759] w-full pt-20 pb-24 lg:pt-[120px] lg:pb-[300px]">
+    <div
+      class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center px-12 md:px-0 gap-10">
+      <!-- Left navigation -->
+      <div class="flex-1 flex flex-row gap-12 w-full md:w-auto lg:px-8">
+        <!-- First Column -->
+        <div class="flex-1 flex flex-col gap-4 lg:gap-6 min-w-[80px]">
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">TOP</a>
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">投資用不動産</a>
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">不動産売却生募集</a>
+        </div>
+        <!-- Second Column -->
+        <div class="flex-1 flex flex-col gap-4 lg:gap-6 min-w-[80px]">
+          <a href="#"
+            class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide mt-0 font-normal">管理</a>
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">問い合わせ</a>
+          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">求人募集</a>
+        </div>
+      </div>
+      <!-- Centered/Right Logo Block -->
+      <div class="flex-1 flex flex-col-reverse md:flex-col items-center md:items-start gap-8 w-full md:w-auto">
+        <div class="flex items-center gap-2">
+          <img src="assets/images/logo.png" alt="ちゃちゃまる不動産DX Logo" class="w-[400px] h-auto"
+            style="filter: brightness(0) invert(1);" />
+        </div>
+        <div class="flex items-center gap-2 mt-2 md:pl-10">
+          <span class="text-[#EAF0F6] text-[14px] xl:text-[24px] tracking-wide select-none">CONTACT :
+            03-6279-3943</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <section class="w-full">
+    <div class="max-w-[1440px] mx-auto">
+
+    </div>
+  </section>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
