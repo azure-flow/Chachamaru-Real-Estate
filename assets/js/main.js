@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     AOS.init();
   }
 
+  // -------------------------  SWIPER  -----------------------------------
+
   // Customer feedback slider (.swiper-feedback) (index-invest.html)
   // NOTE: This slider uses 6 slides that are 2x duplicates of 3 items.
   // We want pagination to show only 3 bullets while staying in sync as slides change.
@@ -233,6 +235,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+  let ourCasesSwiper;
+  const OUR_CASES_ORIGINAL_SLIDE_COUNT = 2;
+
+  function initOurCasesSwiper() {
+    const swiperEl = document.querySelector(".swiper-our-cases");
+    if (!swiperEl) return;
+
+    const wrapper = swiperEl.querySelector(".swiper-wrapper");
+    if (!wrapper) return;
+
+    if (ourCasesSwiper) {
+      ourCasesSwiper.destroy(true, true);
+      ourCasesSwiper = undefined;
+      // Remove JS-duplicated slides so we're back to original 2
+      while (wrapper.children.length > OUR_CASES_ORIGINAL_SLIDE_COUNT) {
+        wrapper.removeChild(wrapper.lastChild);
+      }
+    }
+
+    if (window.innerWidth >= 768) {
+      // Duplicate 2 slides to 4 via JS so loop works
+      if (wrapper.children.length === OUR_CASES_ORIGINAL_SLIDE_COUNT) {
+        const slides = Array.from(wrapper.querySelectorAll(".swiper-slide"));
+        slides.forEach((slide) => {
+          wrapper.appendChild(slide.cloneNode(true));
+        });
+      }
+
+      ourCasesSwiper = new Swiper(swiperEl, {
+        slidesPerView: 1,
+        spaceBetween: 25,
+        slidesPerGroup: 1,
+        loop: true,
+        centeredSlides: false,
+        speed: 600,
+        breakpoints: {
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 25,
+          },
+          1024: {
+            slidesPerView: 1.84,
+            spaceBetween: -50,
+          },
+          1440: {
+            slidesPerView: 1.84,
+            spaceBetween: -50,
+          },
+        },
+      });
+    }
+  }
+
+  window.addEventListener('resize', initOurCasesSwiper);
+  initOurCasesSwiper();
+
+
+  // -------------------------  Others  -----------------------------------
+
 
   // Scroll to Top Button
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -336,13 +397,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// Service Toggle Slide Button
 
-
-
-// Service Toggle Slide Button
-
-// Grab elements
 const serviceToggleSlideBtn = document.getElementById('serviceToggleSlideBtn');
 const serviceSlideContent = document.getElementById('serviceSlideContent');
 
