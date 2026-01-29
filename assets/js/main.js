@@ -365,7 +365,7 @@ function slideDown(element) {
     element.style.duration = '0.5s';
     element.style.height = height;
     if (window.innerWidth < 768) {
-      element.style.padding = '40px 24px';
+      element.style.padding = '24px 24px';
     } else {
       element.style.padding = '48px 82px';
     }
