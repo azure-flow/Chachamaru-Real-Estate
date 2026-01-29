@@ -182,6 +182,22 @@ body {
   opacity: 1;
 }
 
+
+/* Our Cases slider: for PC: active scale 1, others scale 0.7 */
+@media (min-width: 768px) {
+  .swiper-our-cases .swiper-wrapper {
+    align-items: stretch;
+  }
+  .swiper-our-cases .swiper-slide {
+    transition: transform 0.5s ease;
+    transform: scale(0.7);
+  }
+  .swiper-our-cases .swiper-slide-active {
+    transform: scale(1);
+  }
+}
+
+
 .writing-vertical {
   writing-mode: vertical-rl;
   text-orientation: mixed;
