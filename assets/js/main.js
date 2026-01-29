@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.slides.forEach((slide) => {
               slide.style.transform = '';
               slide.style.transition = 'background-color 0.7s ease';
-              slide.style.backgroundColor = 'rgb(186,191,200)';
+              slide.style.backgroundColor = 'rgb(245,247,249)';
             });
           }
         }
@@ -345,6 +345,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // Grab elements
 const serviceToggleSlideBtn = document.getElementById('serviceToggleSlideBtn');
 const serviceSlideContent = document.getElementById('serviceSlideContent');
+const serviceToggleSlideBtnLabel = document.getElementById('serviceToggleSlideBtnLabel');
+const serviceToggleSlideBtnIcon = document.getElementById('serviceToggleSlideBtnIcon');
 
 // Slide down utility
 function slideDown(element) {
@@ -410,10 +412,12 @@ if (serviceToggleSlideBtn) {
   serviceToggleSlideBtn.addEventListener('click', function () {
     if (!shown) {
       slideDown(serviceSlideContent);
-      serviceToggleSlideBtn.innerHTML = '閉じる &nbsp;&nbsp; ⋀';
+      if (serviceToggleSlideBtnLabel) serviceToggleSlideBtnLabel.textContent = '閉じる';
+      if (serviceToggleSlideBtnIcon) serviceToggleSlideBtnIcon.style.transform = 'rotate(180deg)';
     } else {
       slideUp(serviceSlideContent);
-      serviceToggleSlideBtn.innerHTML = 'もっとみる &nbsp;&nbsp; ⋁';
+      if (serviceToggleSlideBtnLabel) serviceToggleSlideBtnLabel.textContent = 'もっとみる';
+      if (serviceToggleSlideBtnIcon) serviceToggleSlideBtnIcon.style.transform = 'rotate(0deg)';
     }
     shown = !shown;
   });
