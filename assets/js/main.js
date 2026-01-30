@@ -233,6 +233,90 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Swiper for .swiper-investment-steps (SP only). 3 slides duplicated to 6; pagination shows 3 dots.
+  let investmentStepsSwiper;
+  let investmentStepsPaginationClickBound = false;
+  const INVESTMENT_STEPS_ORIGINAL_SLIDE_COUNT = 3;
+  const INVESTMENT_STEPS_PAGE_COUNT = 3;
+
+  const renderInvestmentStepsPagination = (swiper) => {
+    const activePageIndex = swiper.realIndex % INVESTMENT_STEPS_PAGE_COUNT;
+    let html = "";
+    for (let i = 0; i < INVESTMENT_STEPS_PAGE_COUNT; i++) {
+      const activeClass = i === activePageIndex ? " swiper-pagination-bullet-active" : "";
+      html += `<span class="swiper-pagination-bullet${activeClass}" data-swiper-pagination-index="${i}" role="button" tabindex="0" aria-label="Go to step ${i + 1}"></span>`;
+    }
+    return html;
+  };
+
+  const getClosestInvestmentStepsSlideIndexForPage = (pageIndex, currentRealIndex) => {
+    const a = pageIndex;
+    const b = pageIndex + INVESTMENT_STEPS_PAGE_COUNT;
+    if (b >= INVESTMENT_STEPS_ORIGINAL_SLIDE_COUNT * 2) return a;
+    return Math.abs(a - currentRealIndex) <= Math.abs(b - currentRealIndex) ? a : b;
+  };
+
+  function initInvestmentStepsSwiper() {
+    const swiperEl = document.querySelector(".swiper-investment-steps");
+    if (!swiperEl) return;
+
+    const wrapper = swiperEl.querySelector(".swiper-wrapper");
+    if (!wrapper) return;
+
+    if (investmentStepsSwiper) {
+      investmentStepsSwiper.destroy(true, true);
+      investmentStepsSwiper = undefined;
+      while (wrapper.children.length > INVESTMENT_STEPS_ORIGINAL_SLIDE_COUNT) {
+        wrapper.removeChild(wrapper.lastChild);
+      }
+    }
+
+    if (window.innerWidth < 768) {
+      if (wrapper.children.length === INVESTMENT_STEPS_ORIGINAL_SLIDE_COUNT) {
+        const slides = Array.from(wrapper.querySelectorAll(".swiper-slide"));
+        slides.forEach((slide) => wrapper.appendChild(slide.cloneNode(true)));
+      }
+
+      investmentStepsSwiper = new Swiper(swiperEl, {
+        slidesPerView: 1.15,
+        spaceBetween: -20,
+        slidesPerGroup: 1,
+        loop: true,
+        centeredSlides: true,
+        speed: 500,
+        pagination: {
+          el: ".swiper-investment-steps-pagination",
+          type: "custom",
+          renderCustom: (swiper) => renderInvestmentStepsPagination(swiper),
+        },
+      });
+
+      if (!investmentStepsPaginationClickBound) {
+        const paginationEl = document.querySelector(".swiper-investment-steps-pagination");
+        if (paginationEl) {
+          investmentStepsPaginationClickBound = true;
+          paginationEl.addEventListener("click", (e) => {
+            const bullet = e.target.closest("[data-swiper-pagination-index]");
+            if (!bullet || !investmentStepsSwiper) return;
+            const pageIndex = Number(bullet.getAttribute("data-swiper-pagination-index"));
+            if (Number.isNaN(pageIndex)) return;
+            const targetSlideIndex = getClosestInvestmentStepsSlideIndexForPage(
+              pageIndex,
+              investmentStepsSwiper.realIndex
+            );
+            if (typeof investmentStepsSwiper.slideToLoop === "function") {
+              investmentStepsSwiper.slideToLoop(targetSlideIndex);
+            } else {
+              investmentStepsSwiper.slideTo(targetSlideIndex);
+            }
+          });
+        }
+      }
+    }
+  }
+
+  window.addEventListener('resize', initInvestmentStepsSwiper);
+  initInvestmentStepsSwiper();
 
 
   let ourCasesSwiper;
