@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.slides.forEach((slide) => {
               slide.style.transform = '';
               slide.style.transition = 'background-color 0.7s ease';
-              slide.style.backgroundColor = 'rgb(186,191,200)';
+              slide.style.backgroundColor = 'rgb(245,247,249)';;
             });
           }
         },
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.slides.forEach((slide) => {
               slide.style.transform = '';
               slide.style.transition = 'background-color 0.7s ease';
-              slide.style.backgroundColor = 'rgb(186,191,200)';
+              slide.style.backgroundColor = 'rgb(245,247,249)';;
             });
           }
         }

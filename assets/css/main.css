@@ -101,6 +101,16 @@ body {
   }
 }
 
+.swiper-pagination-bullet-active{
+  background-color: #193759;
+  width: 22px !important;
+  height: 22px !important;
+}
+
+
+
+
+
 /* Mobile Navigation Slide Animation */
 #mobileNav {
   transition:
