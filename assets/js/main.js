@@ -318,6 +318,78 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('resize', initInvestmentStepsSwiper);
   initInvestmentStepsSwiper();
 
+  // Swiper for .swiper-property (index-invest.html)
+  let propertySwiper;
+  let propertyPaginationClickBound = false;
+  const PROPERTY_ORIGINAL_SLIDE_COUNT = 3;
+  const PROPERTY_PAGE_COUNT = 3;
+
+  const renderPropertyPagination = (swiper) => {
+    const activePageIndex = swiper.realIndex % PROPERTY_PAGE_COUNT;
+    let html = "";
+    for (let i = 0; i < PROPERTY_PAGE_COUNT; i++) {
+      const activeClass = i === activePageIndex ? " swiper-pagination-bullet-active" : "";
+      html += `<span class="swiper-pagination-bullet${activeClass}" data-swiper-pagination-index="${i}" role="button" tabindex="0" aria-label="Go to property ${i + 1}"></span>`;
+    }
+    return html;
+  };
+  const getClosestPropertySlideIndexForPage = (pageIndex, currentRealIndex) => {
+    const a = pageIndex;
+    const b = pageIndex + PROPERTY_PAGE_COUNT;
+    if (b >= PROPERTY_ORIGINAL_SLIDE_COUNT * 2) return a;
+    return Math.abs(a - currentRealIndex) <= Math.abs(b - currentRealIndex) ? a : b;
+  };
+  function initPropertySwiper() {
+    const swiperEl = document.querySelector(".swiper-property");
+    if (!swiperEl) return;
+    const wrapper = swiperEl.querySelector(".swiper-wrapper");
+    if (!wrapper) return;
+    if (propertySwiper) {
+      propertySwiper.destroy(true, true);
+      propertySwiper = undefined;
+    }
+    if (wrapper.children.length === PROPERTY_ORIGINAL_SLIDE_COUNT) {
+      const slides = Array.from(wrapper.querySelectorAll(".swiper-slide"));
+      slides.forEach((slide) => wrapper.appendChild(slide.cloneNode(true)));
+    }
+
+    propertySwiper = new Swiper(swiperEl, {
+      slidesPerView: 1.15,
+      spaceBetween: -20,
+      slidesPerGroup: 1,
+      loop: true,
+      centeredSlides: true,
+      speed: 600,
+      pagination: {
+        el: ".swiper-property-pagination",
+        type: "custom",
+        clickable: true,
+        renderCustom: (swiper) => renderPropertyPagination(swiper),
+      },
+      navigation: {
+        nextEl: ".swiper-property-right-nav-btn",
+        prevEl: ".swiper-property-left-nav-btn",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 1.5,
+          spaceBetween: -50,
+        },
+        1024: {
+          slidesPerView: 1.84,
+          spaceBetween: -50,
+        },
+        1440: {
+          slidesPerView: 1.5,
+          spaceBetween: -50,
+        },
+      },
+      // loopedSlides: PROPERTY_ORIGINAL_SLIDE_COUNT,
+    });
+  }
+  window.addEventListener('resize', initPropertySwiper);
+  initPropertySwiper();
+
 
   let ourCasesSwiper;
   const OUR_CASES_ORIGINAL_SLIDE_COUNT = 2;
