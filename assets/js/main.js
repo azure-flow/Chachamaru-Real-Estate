@@ -376,6 +376,79 @@ document.addEventListener("DOMContentLoaded", function () {
   initOurCasesSwiper();
 
 
+  // Initialize .swiper-research Swiper only on SP (< 768px). 3 slides duplicated to 6 for loop. Pagination: single track + one moving dot.
+  const RESEARCH_SLIDE_COUNT = 3;
+  const RESEARCH_SWIPER_SPEED = 500;
+  let researchSwiper;
+  let researchPaginationClickBound = false;
+
+  const renderResearchPagination = (swiper) => {
+    const realIndex = swiper.realIndex % RESEARCH_SLIDE_COUNT;
+    const leftPercent = realIndex === 0 ? 0 : realIndex === 1 ? 50 : 100;
+    return `<div class="research-pagination-track" role="presentation" data-research-pagination>
+      <span class="research-pagination-thumb" style="left: ${leftPercent}%"></span>
+    </div>`;
+  };
+
+  function initResearchSwiper() {
+    const swiperEl = document.querySelector(".swiper-research");
+    if (!swiperEl) return;
+
+    const wrapper = swiperEl.querySelector(".swiper-wrapper");
+    if (!wrapper) return;
+
+    if (researchSwiper) {
+      researchSwiper.destroy(true, true);
+      researchSwiper = undefined;
+      while (wrapper.children.length > RESEARCH_SLIDE_COUNT) {
+        wrapper.removeChild(wrapper.lastChild);
+      }
+    }
+
+    if (window.innerWidth < 768) {
+      if (wrapper.children.length === RESEARCH_SLIDE_COUNT) {
+        const slides = Array.from(wrapper.querySelectorAll(".swiper-slide"));
+        slides.forEach((slide) => wrapper.appendChild(slide.cloneNode(true)));
+      }
+
+      researchSwiper = new Swiper(swiperEl, {
+        loop: true,
+        speed: RESEARCH_SWIPER_SPEED,
+        spaceBetween: 10,
+        slidesPerView: 1.2,
+        loopedSlides: RESEARCH_SLIDE_COUNT,
+        pagination: {
+          el: ".swiper-research-pagination",
+          type: "custom",
+          renderCustom: (swiper) => renderResearchPagination(swiper),
+        },
+      });
+
+      // if (!researchPaginationClickBound) {
+      //   const paginationEl = document.querySelector(".swiper-research-pagination");
+      //   if (paginationEl) {
+      //     researchPaginationClickBound = true;
+      //     paginationEl.addEventListener("click", (e) => {
+      //       const track = e.target.closest("[data-research-pagination]");
+      //       if (!track || !researchSwiper) return;
+      //       const rect = track.getBoundingClientRect();
+      //       const x = e.clientX - rect.left;
+      //       const pct = Math.max(0, Math.min(1, x / rect.width));
+      //       const index = pct < 1 / 3 ? 0 : pct < 2 / 3 ? 1 : 2;
+      //       if (typeof researchSwiper.slideToLoop === "function") {
+      //         researchSwiper.slideToLoop(index, RESEARCH_SWIPER_SPEED);
+      //       } else {
+      //         researchSwiper.slideTo(index, RESEARCH_SWIPER_SPEED);
+      //       }
+      //     });
+      //   }
+      // }
+    }
+  }
+  window.addEventListener('resize', initResearchSwiper);
+  initResearchSwiper();
+
+
   // -------------------------  Others  -----------------------------------
 
 
