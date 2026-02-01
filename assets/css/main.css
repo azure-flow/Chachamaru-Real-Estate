@@ -112,7 +112,7 @@ body {
   transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   #mobileNav {
     max-height: 0;
     opacity: 0;
@@ -146,7 +146,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   #mobileNav {
     max-height: none !important;
     opacity: 1 !important;

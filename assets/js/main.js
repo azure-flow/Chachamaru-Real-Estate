@@ -152,10 +152,10 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       breakpoints: {
         768: {
-          slidesPerView: 1.5,
+          slidesPerView: 2,
         },
         1024: {
-          slidesPerView: 1.5,
+          slidesPerView: 1,
         },
         1280: {
           slidesPerView: 1.5,
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
       loopedSlides: consultationSlideCount,
       on: {
         init: function () {
-          if (window.innerWidth >= 1024) { // Apply only on PC
+          if (window.innerWidth >= 1440) { // Apply only on PC
             this.slides.forEach((slide, idx) => {
               if (idx === this.activeIndex) {
                 slide.style.transform = 'scale(1.1)';
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         },
         slideChange: function () {
-          if (window.innerWidth >= 1024) { // Apply only on PC
+          if (window.innerWidth >= 1440) { // Apply only on PC
             this.slides.forEach((slide, idx) => {
               if (idx === this.activeIndex) {
                 slide.style.transform = 'scale(1.1)';
@@ -562,7 +562,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeNavBtn = document.getElementById("closeNavBtn");
 
   function openMobileNav() {
-    if (mobileNav && window.innerWidth < 768) {
+    if (mobileNav && window.innerWidth < 1024) {
       // Temporarily remove max-height to get the natural height
       mobileNav.style.maxHeight = "none";
       hamburgerBtn.style.display = "none";
@@ -573,14 +573,14 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileNav.offsetHeight;
       // Now animate to the actual height
       requestAnimationFrame(() => {
-        mobileNav.style.maxHeight = height + "px";
+        mobileNav.style.maxHeight = "800px";
         mobileNav.classList.add("menu-open");
       });
     }
   }
 
   function closeMobileNav() {
-    if (mobileNav && window.innerWidth < 768) {
+    if (mobileNav && window.innerWidth < 1024) {
       // Get current height
       const height = mobileNav.scrollHeight;
       mobileNav.style.maxHeight = height + "px";
@@ -616,13 +616,79 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Reset menu state on window resize (if resizing from mobile to desktop)
+  // Reset menu state on window resize (if resizing from mobile/tablet to desktop)
   window.addEventListener("resize", function () {
-    if (mobileNav && window.innerWidth >= 768) {
-      mobileNav.style.maxHeight = "";
-      mobileNav.classList.remove("menu-open");
+    if (window.innerWidth >= 1024) {
+      if (mobileNav) {
+        mobileNav.style.maxHeight = "";
+        mobileNav.classList.remove("menu-open");
+      }
+      if (hamburgerBtn) {
+        hamburgerBtn.style.display = "";
+      }
     }
   });
+
+  // Company dropdown toggle (会社概要) - smooth slide from height 0
+  const companyToggleBtn = document.getElementById("companyToggleBtn");
+  const companyDropdownMenu = document.getElementById("companyDropdownMenu");
+  const companyToggleBtnIcon = document.getElementById("companyToggleBtnIcon");
+  let isCompanyMenuOpen = false;
+
+  if (companyToggleBtn && companyDropdownMenu) {
+    companyToggleBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      
+      if (!isCompanyMenuOpen) {
+        // Open: slide down from height 0
+        const fullHeight = companyDropdownMenu.scrollHeight;
+        companyDropdownMenu.style.maxHeight = fullHeight + "px";
+        companyDropdownMenu.style.opacity = "1";
+        if (companyToggleBtnIcon) {
+          companyToggleBtnIcon.style.transform = "rotate(180deg)";
+        }
+        // Add white background on SP/tablet when open (< 1024)
+        if (window.innerWidth < 1024) {
+          companyToggleBtn.style.backgroundColor = "#DFE3E8";
+          companyToggleBtn.style.color = "#193759";
+          companyDropdownMenu.style.backgroundColor = "#DFE3E8";
+        }
+        isCompanyMenuOpen = true;
+      } else {
+        // Close: slide up to height 0
+        companyDropdownMenu.style.maxHeight = "0";
+        companyDropdownMenu.style.opacity = "0";
+        if (companyToggleBtnIcon) {
+          companyToggleBtnIcon.style.transform = "rotate(0deg)";
+        }
+        // Remove white background on SP/tablet when closed
+        if (window.innerWidth < 1024) {
+          companyToggleBtn.style.backgroundColor = "";
+          companyToggleBtn.style.color = "";
+          companyDropdownMenu.style.backgroundColor = "";
+        }
+        isCompanyMenuOpen = false;
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", function (e) {
+      if (isCompanyMenuOpen && !companyToggleBtn.contains(e.target) && !companyDropdownMenu.contains(e.target)) {
+        companyDropdownMenu.style.maxHeight = "0";
+        companyDropdownMenu.style.opacity = "0";
+        if (companyToggleBtnIcon) {
+          companyToggleBtnIcon.style.transform = "rotate(0deg)";
+        }
+        // Remove white background on SP/tablet when closed
+        if (window.innerWidth < 1024) {
+          companyToggleBtn.style.backgroundColor = "";
+          companyDropdownMenu.style.backgroundColor = "";
+          companyToggleBtn.style.color = "";
+        }
+        isCompanyMenuOpen = false;
+      }
+    });
+  }
 
 });
 
@@ -694,10 +760,10 @@ if (serviceToggleSlideBtn) {
   serviceToggleSlideBtn.addEventListener('click', function () {
     if (!shown) {
       slideDown(serviceSlideContent);
-      serviceToggleSlideBtn.innerHTML = '閉じる &nbsp;&nbsp; ⋀';
+      serviceToggleSlideBtn.innerHTML = '閉じる &nbsp;&nbsp; <svg id="serviceToggleSlideBtnIcon" viewBox="0 0 20 20" aria-hidden="true" style="width: 1em; height: 1em; transition: transform 150ms; color: currentColor;"><path d="M5 12.5L10 7.5L15 12.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>';
     } else {
       slideUp(serviceSlideContent);
-      serviceToggleSlideBtn.innerHTML = 'もっとみる &nbsp;&nbsp; ⋁';
+      serviceToggleSlideBtn.innerHTML = 'もっとみる &nbsp;&nbsp; <svg id="serviceToggleSlideBtnIcon" viewBox="0 0 20 20" aria-hidden="true" style="width: 1em; height: 1em; transition: transform 150ms; color: currentColor;"><path d="M5 7.5L10 12.5L15 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>';
     }
     shown = !shown;
   });
