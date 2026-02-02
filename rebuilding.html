@@ -725,7 +725,8 @@
         <div class="swiper swiper-our-cases">
           <div class="swiper-wrapper flex-col md:flex-row gap-4 lg:gap-0 ">
             <div class="swiper-slide">
-              <div class="w-full md:min-h-[360px] bg-[#EAF3EF] p-1 xl:p-4 rounded-[3px] border border-[#2F5E4E] overflow-hidden">
+              <div
+                class="w-full md:min-h-[360px] bg-[#EAF3EF] p-1 xl:p-4 rounded-[3px] border border-[#2F5E4E] overflow-hidden">
                 <div class="w-full h-full overflow-hidden">
                   <img src="assets/images/old-house-in.webp" alt="買取事例 室内"
                     class="w-full h-full object-cover rounded-[3px] hover:scale-105 transition-all duration-300">
@@ -733,7 +734,8 @@
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="w-full md:min-h-[360px] bg-[#EAF3EF] p-1 xl:p-4 rounded-[3px] border border-[#2F5E4E] overflow-hidden">
+              <div
+                class="w-full md:min-h-[360px] bg-[#EAF3EF] p-1 xl:p-4 rounded-[3px] border border-[#2F5E4E] overflow-hidden">
                 <div class="w-full h-full overflow-hidden">
                   <img src="assets/images/old-house-out.webp" alt="買取事例 外観"
                     class="w-full h-full object-cover rounded-[3px] hover:scale-105 transition-all duration-300">
@@ -954,41 +956,50 @@
   </section>
   <footer id="footerSection" class="bg-[#2F5E4E] w-full pt-20 pb-24 lg:pt-[120px] lg:pb-[300px]">
     <div
-      class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center px-12 md:px-0 gap-10">
-      <!-- Left navigation -->
-      <div class="flex-1 flex flex-row gap-12 w-full md:w-auto lg:px-8">
-        <!-- First Column -->
+      class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center px-12 lg:px-0 gap-12 md:gap-10">
+      <div class="flex-1 flex flex-row gap-10 lg:gap-12 w-full md:w-auto lg:px-8">
         <div class="flex-1 flex flex-col gap-4 lg:gap-6 min-w-[80px]">
-          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">TOP</a>
-          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">投資用不動産</a>
-          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">不動産売却生募集</a>
+          <a href="index.html" class="hidden lg:block text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">TOP</a>
+          <a href="https://chachamaru-estate.com/company"
+            class="block lg:hidden text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">会社概要</a>
+          <a href="investment.html" class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">投資用不動産</a>
+          <a href="rebuilding.html" class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">不動産再生事業</a>
+          <a href="management.html" class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">マンション管理 </a>
         </div>
-        <!-- Second Column -->
         <div class="flex-1 flex flex-col gap-4 lg:gap-6 min-w-[80px]">
-          <a href="#"
-            class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide mt-0 font-normal">管理</a>
-          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">問い合わせ</a>
-          <a href="#" class="text-[#F5F7F9] text-[14px] lg:text-[16px] leading-[1.7] tracking-wide">求人募集</a>
+          <a href="https://chachamaru-estate.com/staff"
+            class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide mt-0 font-normal">スタッフ紹介</a>
+          <a href="https://chachamaru-estate.com/recruit"
+            class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">採用情報</a>
+          <a href="#" class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">入居者さまへ</a>
+          <a href="#" class="hidden lg:block text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">資料請求</a>
+          <a href="https://chachamaru-estate.com/contact"
+            class="block lg:hidden text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">問い合わせ</a>
         </div>
       </div>
-      <!-- Centered/Right Logo Block -->
-      <div class="flex-1 flex flex-col-reverse md:flex-col items-center md:items-start gap-8 w-full md:w-auto">
+      <div
+        class="flex-1 flex flex-col-reverse md:flex-col items-center md:items-start gap-14 md:gap-8 w-full md:w-auto">
         <div class="flex items-center gap-2">
           <img src="assets/images/logo.png" alt="ちゃちゃまる不動産DX Logo" class="w-[400px] h-auto"
             style="filter: brightness(0) invert(1);" />
         </div>
-        <div class="flex items-center gap-2 mt-2 md:pl-10">
-          <span class="text-[#EAF0F6] text-[14px] xl:text-[24px] tracking-wide select-none">CONTACT :
-            03-6279-3943</span>
+        <div id="sns-field" class="flex justify-between items-center gap-4 xl:gap-6 px-8 lg:px-12 pb-2">
+          <a href="https://www.instagram.com" target="_blank" rel="noopener"
+            class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
+            <img src="assets/images/instagram-ico.webp" alt="Instagram" class="w-[28px] lg:w-[32px] h-auto">
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener"
+            class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
+            <img src="assets/images/x-ico.webp" alt="Twitter" class="w-[23px] lg:w-[27px] h-auto">
+          </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener"
+            class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
+            <img src="assets/images/youtube-ico.webp" alt="YouTube" class="w-[123px] lg:w-[137px] h-auto">
+          </a>
         </div>
       </div>
     </div>
   </footer>
-  <section class="w-full">
-    <div class="max-w-[1440px] mx-auto">
-
-    </div>
-  </section>
   <script src="assets/js/main.js"></script>
 </body>
 
