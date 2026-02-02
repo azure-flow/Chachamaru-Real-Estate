@@ -50,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
       speed: 700,
       spaceBetween: -20,
       slidesPerView: 1.15,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
       pagination: {
         el: ".swiper-feedback-pagination",
         type: "custom",
@@ -140,8 +145,9 @@ document.addEventListener("DOMContentLoaded", function () {
       loop: true,
       speed: 1000,
       autoplay: {
-        delay: 2000,
+        delay: 2500,
         disableOnInteraction: false,
+        pauseOnMouseEnter: true,
       },
       pagination: {
         el: ".swiper-consultation-pagination",
@@ -286,6 +292,11 @@ document.addEventListener("DOMContentLoaded", function () {
         loop: true,
         centeredSlides: true,
         speed: 500,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
         pagination: {
           el: ".swiper-investment-steps-pagination",
           type: "custom",
@@ -362,6 +373,11 @@ document.addEventListener("DOMContentLoaded", function () {
       loop: true,
       centeredSlides: true,
       speed: 600,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
       pagination: {
         el: ".swiper-property-pagination",
         type: "custom",
@@ -428,6 +444,11 @@ document.addEventListener("DOMContentLoaded", function () {
         loop: true,
         centeredSlides: false,
         speed: 600,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
         breakpoints: {
           768: {
             slidesPerView: 1,
@@ -491,6 +512,11 @@ document.addEventListener("DOMContentLoaded", function () {
         spaceBetween: 10,
         slidesPerView: 1.2,
         loopedSlides: RESEARCH_SLIDE_COUNT,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
         pagination: {
           el: ".swiper-research-pagination",
           type: "custom",
