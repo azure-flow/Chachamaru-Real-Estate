@@ -57,11 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       breakpoints: {
         768: {
-          slidesPerView: 2.2,
-          spaceBetween: 28,
+          slidesPerView: 2,
+          spaceBetween: 0,
         },
         1024: {
-          slidesPerView: 3,
+          slidesPerView: 2,
           spaceBetween: 32,
         },
         1280: {
@@ -96,18 +96,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Scale active/other slides for .swiper-consultation
-  // NOTE: This swiper has 6 slides that are 2x duplicates of 3 items.
-  // We want pagination to show only 3 bullets while staying in sync as slides change.
+  // Duplicate 3 HTML slides to 6 in JS so loop works; pagination shows 3 bullets.
+  const CONSULTATION_ORIGINAL_SLIDE_COUNT = 3;
   const consultationSwiperEl = document.querySelector(".swiper-consultation");
   if (consultationSwiperEl) {
+    const wrapper = consultationSwiperEl.querySelector(".swiper-wrapper");
+    if (wrapper && wrapper.children.length === CONSULTATION_ORIGINAL_SLIDE_COUNT) {
+      const slides = Array.from(wrapper.querySelectorAll(".swiper-slide"));
+      slides.forEach((slide) => wrapper.appendChild(slide.cloneNode(true)));
+    }
     const consultationOriginalSlides = consultationSwiperEl.querySelectorAll(
       ".swiper-wrapper > .swiper-slide"
     );
     const consultationSlideCount = consultationOriginalSlides.length;
-    const consultationPageCount =
-      consultationSlideCount > 0 && consultationSlideCount % 2 === 0
-        ? consultationSlideCount / 2
-        : consultationSlideCount;
+    const consultationPageCount = CONSULTATION_ORIGINAL_SLIDE_COUNT;
 
     const renderConsultationPagination = (swiper) => {
       const activePageIndex =
@@ -161,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
           slidesPerView: 1.5,
         },
       },
-      loopedSlides: consultationSlideCount,
+      loopedSlides: CONSULTATION_ORIGINAL_SLIDE_COUNT,
       on: {
         init: function () {
           if (window.innerWidth >= 1440) { // Apply only on PC
@@ -376,8 +378,8 @@ document.addEventListener("DOMContentLoaded", function () {
           spaceBetween: -50,
         },
         1024: {
-          slidesPerView: 1.84,
-          spaceBetween: -50,
+          slidesPerView: 1,
+          spaceBetween: 20,
         },
         1440: {
           slidesPerView: 1.5,
@@ -638,7 +640,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (companyToggleBtn && companyDropdownMenu) {
     companyToggleBtn.addEventListener("click", function (e) {
       e.stopPropagation();
-      
+
       if (!isCompanyMenuOpen) {
         // Open: slide down from height 0
         const fullHeight = companyDropdownMenu.scrollHeight;
