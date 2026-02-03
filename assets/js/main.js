@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // We want pagination to show only 3 bullets while staying in sync as slides change.
   const feedbackSwiperEl = document.querySelector(".swiper-feedback");
   if (feedbackSwiperEl) {
+    const wrapper = feedbackSwiperEl.querySelector(".swiper-wrapper");
+    if (wrapper) {
+      const originalSlides = Array.from(wrapper.querySelectorAll(".swiper-slide"));
+      originalSlides.forEach((slide) => wrapper.appendChild(slide.cloneNode(true)));
+    }
     const feedbackOriginalSlides = feedbackSwiperEl.querySelectorAll(
       ".swiper-wrapper > .swiper-slide"
     );
@@ -47,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     feedbackSwiper = new Swiper(".swiper-feedback", {
       centeredSlides: true,
       loop: true,
-      speed: 700,
+      speed: 1000,
       spaceBetween: -20,
       slidesPerView: 1.15,
       autoplay: {
@@ -291,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerGroup: 1,
         loop: true,
         centeredSlides: true,
-        speed: 500,
+        speed: 1000,
         autoplay: {
           delay: 2500,
           disableOnInteraction: false,
@@ -372,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function () {
       slidesPerGroup: 1,
       loop: true,
       centeredSlides: true,
-      speed: 600,
+      speed: 1000,
       autoplay: {
         delay: 2500,
         disableOnInteraction: false,
@@ -443,7 +448,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerGroup: 1,
         loop: true,
         centeredSlides: false,
-        speed: 600,
+        speed: 1000,
         autoplay: {
           delay: 2500,
           disableOnInteraction: false,
@@ -473,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize .swiper-research Swiper only on SP (< 768px). 3 slides duplicated to 6 for loop. Pagination: single track + one moving dot.
   const RESEARCH_SLIDE_COUNT = 3;
-  const RESEARCH_SWIPER_SPEED = 500;
+  const RESEARCH_SWIPER_SPEED = 1000;
   let researchSwiper;
   let researchPaginationClickBound = false;
 
