@@ -63,7 +63,7 @@
                   class="block text-start lg:text-center text-[#193759] lg:text-white font-semibold text-[16px] pt-[16px] pb-[12px] pl-8 lg:pl-0 border-b border-[#193759] lg:border-white/20">スタッフ紹介</a>
               </li>
               <li>
-                <a href="#"
+                <a href="https://chachamaru-estate.com/contact/" target="_blank" rel="noopener"
                   class="block text-start lg:text-center text-[#193759] lg:text-white font-semibold text-[16px] pt-[16px] pb-[12px] pl-8 lg:pl-0 border-b border-[#193759] lg:border-white/20">入居者さまへ</a>
               </li>
               <li>
@@ -105,15 +105,15 @@
           </a>
         </div>
         <div id="sns-field" class="flex lg:hidden justify-between items-center gap-4 xl:gap-6 px-14 pt-9 pb-2">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener"
-            class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
+          <a href="https://www.instagram.com/chachamarufudosan?igsh=Y3BicWZkbXY2cGpu&utm_source=qr" target="_blank"
+            rel="noopener" class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
             <img src="assets/images/instagram-ico.webp" alt="Instagram" class="w-[28px] h-auto">
           </a>
-          <a href="https://x.com" target="_blank" rel="noopener"
+          <a href="https://x.com/chachamaruest?s=21" target="_blank" rel="noopener"
             class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
             <img src="assets/images/x-ico.webp" alt="Twitter" class="w-[23px] h-auto">
           </a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener"
+          <a href="https://www.youtube.com/@chachamaru-sl" target="_blank" rel="noopener"
             class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
             <img src="assets/images/youtube-ico.webp" alt="YouTube" class="w-[123px] h-auto">
           </a>
@@ -137,7 +137,6 @@
       </div>
     </div>
   </header>
-  <!-- Temp Header -->
   <div class="w-full h-[55px] lg:h-[60px]">
   </div>
   <section class="w-full h-[100vh]">
@@ -159,7 +158,6 @@
     </div>
   </section>
 
-  <!-- mobile description Section -->
   <section class="w-full py-[60px] md:hidden">
     <div class="w-full flex justify-center items-center mx-auto h-full">
       <div class="flex flex-col items-center justify-center w-[174px] border-t border-b border-[#244A6E] py-8">
@@ -173,7 +171,6 @@
       </div>
     </div>
   </section>
-  <!-- mobile menu section -->
   <section class="p-[22px] md:hidden">
     <div class="w-full flex justify-center items-center mx-auto">
       <div
@@ -181,13 +178,10 @@
         <div class="text-[#244A6E] text-[16px] tracking-[2px] font-semibold flex items-center justify-center gap-0">
           <svg width="32" height="17" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="inline-block align-middle" style="vertical-align:middle;">
-            <!-- Row 1 -->
             <rect x="6" y="3" width="2" height="2" fill="#244A6E" />
             <rect x="12" y="3" width="12" height="2" fill="#244A6E" />
-            <!-- Row 2 -->
             <rect x="6" y="10" width="2" height="2" fill="#244A6E" />
             <rect x="12" y="10" width="12" height="2" fill="#244A6E" />
-            <!-- Row 3 -->
             <rect x="6" y="17" width="2" height="2" fill="#244A6E" />
             <rect x="12" y="17" width="12" height="2" fill="#244A6E" />
           </svg>
@@ -203,7 +197,7 @@
             </svg>
           </button>
 
-          <!-- Slide "modal": use max-height & transition for smooth expand/collapse -->
+
           <div id="mobileMenuModal" class="w-full mt-4 overflow-hidden transition-all duration-500"
             style="max-height: 0; opacity: 0;" aria-hidden="true">
             <ul class="flex flex-col gap-4 text-[#244A6E] font-semibold text-[12px]">
@@ -280,7 +274,6 @@
             const closeMenuBtn = document.getElementById("closeMenuBtn");
             const mobileMenuModal = document.getElementById("mobileMenuModal");
 
-            // helper: get current expanded state
             function isExpanded() {
               return mobileMenuModal.style.maxHeight && mobileMenuModal.style.maxHeight !== "0px";
             }
@@ -289,9 +282,7 @@
               mobileMenuModal.classList.remove('hidden');
               mobileMenuModal.style.opacity = "1";
               mobileMenuModal.setAttribute("aria-hidden", "false");
-              // Temporarily set height to scrollHeight to trigger transition
               mobileMenuModal.style.maxHeight = mobileMenuModal.scrollHeight + "px";
-              // Hide showMenuBtn
               showMenuBtn.style.display = "none";
             }
 
@@ -299,17 +290,15 @@
               mobileMenuModal.style.opacity = "0";
               mobileMenuModal.setAttribute("aria-hidden", "true");
               mobileMenuModal.style.maxHeight = "0";
-              // Show showMenuBtn after animation ends
               setTimeout(() => {
                 if (!isExpanded()) {
                   mobileMenuModal.classList.add('hidden');
                   showMenuBtn.style.display = "";
                 }
-              }, 500); // match duration-500
+              }, 500);
             }
 
             showMenuBtn.addEventListener("click", function () {
-              // Expand only if not already expanded
               if (!isExpanded()) {
                 expandMenu();
               }
@@ -321,7 +310,6 @@
               }
             });
 
-            // Ensure menu collapsed at page load, show button
             collapseMenu();
             showMenuBtn.style.display = "";
           });
@@ -412,7 +400,6 @@
     </div>
   </section>
 
-  <!-- OUR SERVICES -->
   <section id="about-us"
     class="section-container relative w-full h-full px-[22px] md:px-10 lg:px-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,#ffffff_100%),linear-gradient(230deg,#17AA9D4D,#08519E4D)]">
     <img src="assets/images/about-us.webp" alt="about-us"
@@ -434,7 +421,6 @@
         class="block md:hidden z-20 w-full h-auto mt-10 object-cover">
       <div id="serviceSlideContent"
         class="max-w-[920px] w-full flex flex-col gap-16 lg:gap-10 bg-[#FFFFFFB2] md:bg-white shadow-md rounded px-6 lg:px-[82px] overflow-hidden transition-all duration-500 ease-in-out hidden">
-        <!-- Row 1 -->
         <div
           class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8 group md:hover:scale-105 cursor-pointer duration-200">
           <p class="text-[#34495E] text-[18px] leading-relaxed font-medium">
@@ -443,7 +429,6 @@
           </p>
           <img src="assets/images/clothes.webp" alt="clothes icon" class="w-[106px] flex-shrink-0 mt-1 duration-200" />
         </div>
-        <!-- Row 2 -->
         <div
           class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8 group md:hover:scale-105 cursor-pointer duration-200">
           <img src="assets/images/car.webp" alt="car icon" class="w-[106px] flex-shrink-0 mt-1 duration-200" />
@@ -452,7 +437,6 @@
             自分自身の経験から、クリーニング事業に興味を持つようになりました。
           </p>
         </div>
-        <!-- Row 3 -->
         <div
           class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8 group md:hover:scale-105 cursor-pointer duration-200">
           <p class="text-[#34495E] text-[18px] leading-relaxed font-medium">
@@ -462,7 +446,6 @@
           </p>
           <img src="assets/images/dog.webp" alt="dog icon" class="w-[106px] flex-shrink-0 mt-1 duration-200" />
         </div>
-        <!-- Row 4 -->
         <div
           class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8 group md:hover:scale-105 cursor-pointer duration-200">
           <img src="assets/images/pc.webp" alt="pc icon" class="w-[106px] flex-shrink-0 mt-1 duration-200" />
@@ -471,7 +454,6 @@
             できる方法があるかもしれない」と考えました。
           </p>
         </div>
-        <!-- Row 5 -->
         <div
           class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8 group md:hover:scale-105 cursor-pointer duration-200">
           <p class="text-[#34495E] text-[18px] leading-relaxed font-medium">
@@ -483,7 +465,6 @@
           <img src="assets/images/hand-star.webp" alt="hand star icon"
             class="w-[106px] flex-shrink-0 mt-1 duration-200" />
         </div>
-        <!-- Row 6 -->
         <div
           class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8 group md:hover:scale-105 cursor-pointer duration-200">
           <img src="assets/images/heart.webp" alt="heart icon" class="w-[106px] flex-shrink-0 mt-1 duration-200" />
@@ -509,14 +490,6 @@
     </div>
   </section>
 
-  <!-- <section class="w-full section-container">
-    <div class="w-full flex flex-col justify-center px-[30px] md:px-0">
-      <img src="assets/images/about-card01.webp" alt="service slide" class="w-full h-auto">
-      <img src="assets/images/about-card02.webp" alt="service slide" class="w-full h-auto">
-      <img src="assets/images/about-card03.webp" alt="service slide" class="w-full h-auto">
-    </div>
-  </section> -->
-  <!-- </div> -->
   <section id="peace-of-mind" class="w-full section-container">
     <div class="w-full px-[30px] md:px-10 lg:px-0">
       <h2
@@ -533,7 +506,6 @@
       </p>
     </div>
     <div class="lg:max-w-[960px] xl:max-w-[1030px] mx-auto flex flex-col items-center">
-      <!-- Top Row of Three Cards -->
       <div class="w-full flex flex-col lg:flex-row md:gap-5 lg:gap-6 xl:gap-16 my-12 justify-center">
         <div
           class="flex-1 bg-white md:bg-[#FAFBFC] rounded md:shadow-md py-8 px-[30px] lg:px-12 flex md:flex-col gap-6 items-center min-w-[200px]">
@@ -558,7 +530,7 @@
               <path d="M0 6 H300 L350 30 V6 H420" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
-          </div>
+          </diV>
           <img src="assets/images/mark-investment.webp" alt="投資の場面" class="w-[140px] lg:w-[150px] h-auto mb-1" />
         </div>
         <div
@@ -584,7 +556,7 @@
               <path d="M0 6 H300 L350 30 V6 H420" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                 stroke-linejoin="round"></path>
             </svg>
-          </div>
+          </diV>
           <img src="assets/images/mark-rehabilitation.webp" alt="不動産再生" class="w-[140px] lg:w-[150px] h-auto mb-1" />
         </div>
         <div
@@ -610,7 +582,7 @@
               <path d="M0 6 H300 L350 30 V6 H420" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
-          </div>
+          </diV>
           <img src="assets/images/mark-management.webp" alt="管理の場面" class="w-[140px] lg:w-[150px] h-auto mb-1" />
         </div>
       </div>
@@ -667,7 +639,7 @@
                     class="text-[#FAFBFC] text-[16px] text-start md:text-center font-regular leading-[1.4] md:leading-[2]">
                     根拠ある査定<br><br class="hidden md:block">
                   </p>
-                </diV>
+                </div>
                 <img src="assets/images/invest-case02.webp" alt="投資の場合" class="w-[120px] lg:w-[125px] h-auto mb-1" />
               </div>
             </div>
@@ -690,7 +662,7 @@
                     <span class="hidden md:block">借主との定期的コンタクト<br>もリーズナブルに</span>
                     <span class="block md:hidden">借主との定期的<br>コンタクトも</span>
                   </p>
-                </diV>
+                </div>
                 <img src="assets/images/invest-case03.webp" alt="投資の場合" class="w-[120px] lg:w-[125px] h-auto mb-1" />
               </div>
             </div>
@@ -872,7 +844,6 @@
           <div class="swiper-wrapper flex items-stretch">
             <div
               class="h-auto swiper-slide flex flex-col bg-[#babfc8] rounded-[10px] lg:w-[1008px] mx-auto py-6 lg:p-10 items-start">
-              <!-- Left: Title & List -->
               <div class="flex justify-center md:justify-start items-center gap-2 mb-4 px-4">
                 <img src="assets/images/building.webp" alt="investment icon" class="w-[30px] lg:w-[40px]">
                 <div class="text-[#244A6E] text-[18px] lg:text-[22px] font-semibold leading-[1.2] select-none">投資系</div>
@@ -889,7 +860,6 @@
                     <li>他社で契約しようか迷っている（セカンドオピニオン）</li>
                   </ul>
                 </div>
-                <!-- Right: Image -->
                 <div
                   class="hidden md:block flex-shrink-0 w-[336px] rounded overflow-hidden bg-[#E9F2FA] flex justify-center items-center"
                   style="min-width:336px; min-height:174px;">
@@ -900,7 +870,6 @@
             </div>
             <div
               class="h-auto swiper-slide flex flex-col bg-[#babfc8] rounded-[10px] lg:w-[1008px] mx-auto py-6 lg:p-10 items-start">
-              <!-- Left: Title & List -->
               <div class="flex justify-center md:justify-start items-center gap-2 mb-4 px-4">
                 <img src="assets/images/building.webp" alt="investment icon" class="w-[30px] lg:w-[40px]">
                 <div class="text-[#244A6E] text-[18px] lg:text-[22px] font-semibold leading-[1.2] select-none">再生・売買系
@@ -918,7 +887,6 @@
                     <li>購入後のリフォームまで頼めるところを探している</li>
                   </ul>
                 </div>
-                <!-- Right: Image -->
                 <div
                   class="hidden md:block flex-shrink-0 w-[336px] rounded overflow-hidden bg-[#E9F2FA] flex justify-center items-center"
                   style="min-width:336px; min-height:174px;">
@@ -929,7 +897,6 @@
             </div>
             <div
               class="h-auto swiper-slide flex flex-col bg-[#babfc8] rounded-[10px] lg:w-[1008px] mx-auto py-6 lg:p-10 items-start">
-              <!-- Left: Title & List -->
               <div class="flex justify-center md:justify-start items-center gap-2 mb-4 px-4">
                 <img src="assets/images/ico-risk.webp" alt="investment icon" class="w-[30px] lg:w-[40px]">
                 <div class="text-[#244A6E] text-[18px] lg:text-[22px] font-semibold leading-[1.2] select-none">管理・運営系
@@ -946,7 +913,6 @@
                     <li>将来を見据えた運営方法を相談したい</li>
                   </ul>
                 </div>
-                <!-- Right: Image -->
                 <div
                   class="hidden md:block flex-shrink-0 w-[336px] rounded overflow-hidden bg-[#E9F2FA] flex justify-center items-center"
                   style="min-width:336px; min-height:174px;">
@@ -965,8 +931,7 @@
         今の状況やお考えを整理したいという方でもお気軽にご相談ください。
       </p>
       <div class="w-full flex justify-center px-[30px] md:px-0">
-        <a
-          href="https://chachamaru-estate.com/contact"
+        <a href="https://chachamaru-estate.com/contact"
           class="w-full max-w-[360px] mx-auto flex gap-4 items-end justify-center text-[#244A6E] hover:text-[#EAF0F6] bg-white hover:bg-[#193759E5] border  hover:border-[#E9F2FA] border-[#244A6E] font-semibold rounded shadow-lg py-3 xl:py-4 xl:px-6 duration-150 cursor-pointer group">
           <span class="text-[16px] duration-150">まずは、状況整理のご相談から</span>
           <svg class="hidden md:block duration-150 text-[#244A6E] group-hover:text-[#EAF0F6] w-[36px] h-[16px]"
@@ -984,23 +949,19 @@
       <div class="flex-1 flex flex-row gap-10 lg:gap-12 w-full md:w-auto lg:px-8">
         <div class="flex-1 flex flex-col gap-4 lg:gap-6 min-w-[80px]">
           <a href="index.html" class="hidden lg:block text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">TOP</a>
-          <a href="https://chachamaru-estate.com/company" class="block lg:hidden text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">会社概要</a>
-          <a href="investment.html"
-            class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">投資用不動産</a>
-          <a href="rebuilding.html"
-            class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">不動産再生事業</a>
-          <a href="management.html"
-            class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">マンション管理    </a>
+          <a href="https://chachamaru-estate.com/company"
+            class="block lg:hidden text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">会社概要</a>
+          <a href="investment.html" class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">投資用不動産</a>
+          <a href="rebuilding.html" class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">不動産再生事業</a>
+          <a href="management.html" class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">マンション管理 </a>
         </div>
         <div class="flex-1 flex flex-col gap-4 lg:gap-6 min-w-[80px]">
           <a href="https://chachamaru-estate.com/staff"
             class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide mt-0 font-normal">スタッフ紹介</a>
           <a href="https://chachamaru-estate.com/recruit"
             class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">採用情報</a>
-          <a href="#"
-            class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">入居者さまへ</a>
-          <a href="#"
-            class="hidden lg:block text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">資料請求</a>
+          <a href="#" class="text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">入居者さまへ</a>
+          <a href="#" class="hidden lg:block text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">資料請求</a>
           <a href="https://chachamaru-estate.com/contact"
             class="block lg:hidden text-[#F5F7F9] text-[16px] leading-[1.7] tracking-wide">問い合わせ</a>
         </div>
@@ -1008,19 +969,21 @@
       <div
         class="flex-1 flex flex-col-reverse md:flex-col items-center md:items-start gap-14 md:gap-8 w-full md:w-auto">
         <div class="flex items-center gap-2">
-          <img src="assets/images/logo.png" alt="ちゃちゃまる不動産DX Logo" class="w-[400px] h-auto"
-            style="filter: brightness(0) invert(1);" />
+          <a href="index.html">
+            <img src="assets/images/logo.png" alt="ちゃちゃまる不動産DX Logo" class="w-[400px] h-auto"
+              style="filter: brightness(0) invert(1);" />
+          </a>
         </div>
         <div id="sns-field" class="flex justify-between items-center gap-4 xl:gap-6 px-8 lg:px-12 pb-2">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener"
-            class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
+          <a href="https://www.instagram.com/chachamarufudosan?igsh=Y3BicWZkbXY2cGpu&utm_source=qr" target="_blank"
+            rel="noopener" class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
             <img src="assets/images/instagram-ico.webp" alt="Instagram" class="w-[28px] lg:w-[32px] h-auto">
           </a>
-          <a href="https://x.com" target="_blank" rel="noopener"
+          <a href="https://x.com/chachamaruest?s=21" target="_blank" rel="noopener"
             class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
             <img src="assets/images/x-ico.webp" alt="Twitter" class="w-[23px] lg:w-[27px] h-auto">
           </a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener"
+          <a href="https://www.youtube.com/@chachamaru-sl" target="_blank" rel="noopener"
             class="flex items-center gap-2 text-[#3C3C3C] hover:text-[#227093] transition">
             <img src="assets/images/youtube-ico.webp" alt="YouTube" class="w-[123px] lg:w-[137px] h-auto">
           </a>
