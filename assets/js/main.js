@@ -475,6 +475,48 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('resize', initOurCasesSwiper);
   initOurCasesSwiper();
 
+  // Our Cases panels (rebuilding.html): 2 flex items, hover grows one; dots set/reflect active
+  const ourCasesPanelsEl = document.getElementById("our-cases-panels");
+  if (ourCasesPanelsEl) {
+    const panels = ourCasesPanelsEl.querySelectorAll(".cases-panel");
+    const dots = ourCasesPanelsEl.querySelectorAll(".cases-dot");
+
+    function setActiveIndex(index) {
+      const i = Number(index);
+      if (Number.isNaN(i) || i < 0 || i >= panels.length) return;
+      panels.forEach((p) => p.classList.toggle("active", Number(p.getAttribute("data-index")) === i));
+      dots.forEach((d) => d.classList.toggle("cases-dot-active", Number(d.getAttribute("data-index")) === i));
+    }
+
+    panels.forEach((panel) => {
+      panel.addEventListener("mouseenter", () => setActiveIndex(panel.getAttribute("data-index")));
+    });
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => setActiveIndex(dot.getAttribute("data-index")));
+    });
+    setActiveIndex(0);
+
+    const row = ourCasesPanelsEl.querySelector(".cases-panels-row");
+    if (row) {
+      requestAnimationFrame(() => {
+        let height;
+        if (window.matchMedia("(min-width: 1440px)").matches) {
+          height = 445;
+        } else if (window.matchMedia("(min-width: 1024px)").matches) {
+          height = 378;
+        } else if (window.matchMedia("(min-width: 768px)").matches) {
+          height = 258;
+        } else {
+          height = null;
+        }
+        if (height) {
+          row.style.height = `${height}px`;
+        } else {
+          row.style.height = "auto";
+        }
+      });
+    }
+  }
 
   // Initialize .swiper-research Swiper only on SP (< 768px). 3 slides duplicated to 6 for loop. Pagination: single track + one moving dot.
   const RESEARCH_SLIDE_COUNT = 3;
