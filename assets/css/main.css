@@ -232,6 +232,35 @@ body {
   }
 }
 
+/* Our Cases: 2 flex panels, hover/active increases one panel; dots switch active */
+.cases-panels-row {
+  align-items: stretch;
+}
+@media (min-width: 768px) {
+  .cases-panel {
+    flex: 1 1 0%;
+    transition: flex 0.5s ease;
+    min-width: 0;
+  }
+  .cases-panel:hover,
+  .cases-panel.active {
+    flex: 1.5 1 0%;
+  }
+}
+.cases-dot {
+  transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+}
+.cases-dot:not(.cases-dot-active) {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #C8D2D0;
+}
+.cases-dot.cases-dot-active {
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #125941;
+}
+
 .swiper-investment-steps .swiper-wrapper {
   align-items: stretch;
 }
